@@ -1,0 +1,47 @@
+version: "3"
+
+vars:
+  CONTAINER_PHP: costa
+
+
+tasks:
+  build:
+    desc: Build the container image
+    cmds:
+      - docker-compose up --force-recreate --build
+  up:
+    desc: Uo the irons
+    cmds:
+      - docker-compose up
+  shell:
+    desc: hax0r
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
+
+  nuke:
+    cmds:
+      - docker-compose rm -v -f
+      - docker image prune -a -f
+      - docker volume prune -f
+
+  composer:
+    desc: run composer
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} ./composer.phar {{.CLI_ARGS}}
+
+  console:
+    desc: run composer
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} bin/console {{.CLI_ARGS}}
+
+  exec:
+    desc: hax0r
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} {{.CLI_ARGS}}
+
+  push:
+    desc: commit and pushes current changes
+    cmds:
+      - git add .  || true
+      - git commit -am "$(curl -s https://commit.cacko.net/index.txt)" || true
+      - git push  || true

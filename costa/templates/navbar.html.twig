@@ -1,0 +1,21 @@
+<div class="container navbar">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div class="logo terminal-prompt"><a href="/" class="no-style">Power Management
+                    Console</a></div>
+        </header>
+        <nav class="terminal-menu">
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                <li property="itemListElement" typeof="ListItem" class="user-info">
+                        <div class="username">{{ app.user.name }}</div>
+                        <div class="avatar" style="background-image: url({{ app.user.avatar }})" >
+                            <a href="{{ path('app_logout') }}">
+                                <img src="{{ app.user.avatar }}">
+                            </a>
+                        </div>
+                        <meta property="position" content="1">
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

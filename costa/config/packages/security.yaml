@@ -1,0 +1,15 @@
+security:
+    enable_authenticator_manager: true
+    providers:
+        oauth:
+            id: App\Security\UserProvider
+    firewalls:
+        main:
+            custom_authenticators:
+                - App\Security\GoogleAuthenticator
+            logout:
+                path: app_logout
+    access_control:
+        - { path: '^/login', roles: PUBLIC_ACCESS }
+        - { path: '^/logout', roles: PUBLIC_ACCESS }
+        - { path: '^/', roles: ROLE_USER }
