@@ -8,19 +8,19 @@ tasks:
   build:
     desc: Build the container image
     cmds:
-      - docker-compose up --force-recreate --build
+      - docker compose up --force-recreate --build
   up:
     desc: Uo the irons
     cmds:
-      - docker-compose up
+      - docker compose up
   shell:
     desc: hax0r
     cmds:
-      - docker-compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
+      - docker compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
 
   nuke:
     cmds:
-      - docker-compose rm -v -f
+      - docker compose rm -v -f
       - docker image prune -a -f
       - docker volume prune -f
 
@@ -45,3 +45,14 @@ tasks:
       - git add .  || true
       - git commit -am "$(curl -s https://commit.cacko.net/index.txt)" || true
       - git push  || true
+
+  pull:
+    desc: pulls from git
+    cmds:
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};git reset --hard;git pull'
+
+  pp:
+    desc: push and pull
+    cmds:
+      - task: push
+      - task: pull
