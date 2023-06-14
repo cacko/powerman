@@ -12,4 +12,5 @@ security:
     access_control:
         - { path: '^/login', roles: PUBLIC_ACCESS }
         - { path: '^/logout', roles: PUBLIC_ACCESS }
+        - { path: '^/policy', roles: PUBLIC_ACCESS }
         - { path: '^/', roles: ROLE_USER }
