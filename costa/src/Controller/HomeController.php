@@ -18,6 +18,6 @@ class HomeController extends AbstractController
     #[Route('/policy', name: 'app_policy')]
     public function policy(): Response
     {
-        return $this->render('components/policy.html.twig', []);
+        return $this->render('home/policy.html.twig', []);
     }
 }
