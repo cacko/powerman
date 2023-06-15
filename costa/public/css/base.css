@@ -20,6 +20,19 @@
   --code-bg-color: var(--md-sys-color-surface-variant);
   --input-style: solid;
   --display-h1-decoration: none;
+  --gradient-shadow: linear-gradient(
+          45deg,
+          #fb0094,
+          #0000ff,
+          #00ff00,
+          #ffff00,
+          #ff0000,
+          #fb0094,
+          #0000ff,
+          #00ff00,
+          #ffff00,
+          #ff0000
+  );
 }
 
 body {
@@ -93,6 +106,49 @@ hr {
 }
 .anim-bounce {
   animation: bounce 2s ease infinite;
+}
+
+.anim-shadow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+  font-weight: bold;
+  width: 400px;
+  height: 250px;
+  background: linear-gradient(0deg, #000, #262626);
+}
+.anim-shadow:before,
+.anim-shadow:after {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background: var(--gradient-shadow);
+  background-size: 400%;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  z-index: -1;
+  animation: glow-shadow 20s linear infinite;
+}
+
+.anim-shadow:after {
+  filter: blur(20px);
+}
+
+@keyframes glow-shadow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 300% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
 
 @keyframes reveal {
