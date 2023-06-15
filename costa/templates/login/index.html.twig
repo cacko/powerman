@@ -11,6 +11,10 @@
             height: 100%;
         }
 
+        .content>div {
+            display: flex;
+        }
+
         .content button {
             border: none;
         }
@@ -37,12 +41,14 @@
         }
     </style>
     <div class="content">
-        <button class="btn btn-ghost anim-shadow">
+        <div class="anim-shadow">
+            <button class="btn btn-ghost ">
+                <a href="{{ path('connect_google') }}">
+                    <img src="{{ asset('/images/logo.webp') }}" alt="Power Man" title="Power Man">
+                </a>
+            </button>
+        </div>
 
-            <a href="{{ path('connect_google') }}">
-                <img src="{{ asset('/images/logo.webp') }}" alt="Power Man" title="Power Man">
-            </a>
-        </button>
     </div>
 
 {% endblock %}
