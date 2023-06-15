@@ -117,8 +117,8 @@ hr {
   text-align: center;
   font-size: 50px;
   font-weight: bold;
-  width: 400px;
-  height: 250px;
+  /*width: 400px;*/
+  /*height: 250px;*/
   background: linear-gradient(0deg, #000, #262626);
 }
 .anim-shadow:before,
