@@ -1,4 +1,4 @@
-import {Typewriter} from "../vendor/typewriter-effect/core";
+import Typewriter from "../vendor/typewriter-effect/core";
 
 const typ_e_writer = (function () {
   const write = (el) => {

@@ -1,42 +1,7 @@
-<style>
-    .clock {
-        display: flex;
-        position: absolute;
-        align-items: center;
-        left: calc((100vw - var(--page-width)) / 2);
-        bottom: 1em;
-        font-family: VT323;
-        color: var(--md-ref-palette-neutral-variant50);
-        transition:all 500ms ease-in-out;
-
-    }
-
-    .clock:hover {
-        color: var(--font-color);
-        transform: scale(1.6);
-        cursor: pointer;
-    }
-
-    .clock .hour {
-        font-weight: bold;
-    }
-
-    .clock .seconds {
-        font-size: 0.8em;
-    }
-
-    .clock .hour::after {
-        content: ":";
-    }
-
-    .clock .minutes:after {
-        content: ":";
-    }
-
-</style>
-
-<div class="clock">
-    <div class="hour"></div>
-    <div class="minutes"></div>
-    <div class="seconds"></div>
+<div class="container clock">
+    <div>
+        <div class="hour"></div>
+        <div class="minutes"></div>
+        <div class="seconds"></div>
+    </div>
 </div>

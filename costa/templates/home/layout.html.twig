@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
     {% block stylesheets %}
+        {{ parent() }}
         {{ encore_entry_link_tags('home') }}
     {% endblock %}
     {% block javascripts %}
+        {{ parent() }}
         {{ encore_entry_script_tags('home') }}
     {% endblock %}
 {% block content %}
     <div class="ws-background">
         {% block page_contents %}{% endblock %}
     </div>
-    {% include 'components/clock.html.twig'  %}
 {% endblock %}
+{% block footer %}
+    {% include 'components/clock.html.twig'  %}
+{%  endblock %}
