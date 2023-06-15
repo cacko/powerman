@@ -38,12 +38,6 @@ body a:focus-visible {
   border: none;
 }
 
-@media screen and (max-width: 30em) {
-  nb-sidebar {
-    display: none !important;
-  }
-}
-
 .container {
   width: var(--page-width);
   overflow: auto;
