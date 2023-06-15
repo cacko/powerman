@@ -30,20 +30,19 @@
             animation-fill-mode: both;
         }
 
-        button  {
+        button img {
             border-radius: 2em;
             width: 60vh;
             height: 60vh;
         }
     </style>
     <div class="content">
-        <button class="btn  btn-ghost anim-shadow">
-            <div style="background-image: url({{ asset('/images/logo.webp') }}">
-                <a href="{{ path('connect_google') }}">
-                </a>
-            </div>
+        <div class="anim-shadow">
 
-        </button>
+            <a href="{{ path('connect_google') }}">
+                <img  alt="Power Man" title="Power Man">
+            </a>
+        </div>
     </div>
 
 {% endblock %}
