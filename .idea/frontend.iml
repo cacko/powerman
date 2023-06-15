@@ -145,6 +145,9 @@
       <excludeFolder url="file://$MODULE_DIR$/costa/vendor/twig/extra-bundle" />
       <excludeFolder url="file://$MODULE_DIR$/costa/vendor/twig/twig" />
       <excludeFolder url="file://$MODULE_DIR$/costa/vendor/webmozart/assert" />
+      <excludeFolder url="file://$MODULE_DIR$/costa/var" />
+      <excludeFolder url="file://$MODULE_DIR$/costa/vendor" />
+      <excludeFolder url="file://$MODULE_DIR$/costa/vendor/symfony/webpack-encore-bundle" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

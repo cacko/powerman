@@ -10,7 +10,7 @@
                         <div class="username">{{ app.user.name }}</div>
                         <div class="avatar" style="background-image: url({{ app.user.avatar }})" >
                             <a href="{{ path('app_logout') }}">
-                                <img src="{{ app.user.avatar }}">
+                                <img src="{{ app.user.avatar }}" alt="{{ app.user.name }}">
                             </a>
                         </div>
                         <meta property="position" content="1">

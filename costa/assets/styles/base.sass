@@ -1,0 +1,59 @@
+@import "theme"
+@import "root"
+
+body 
+  display: flex
+  flex-direction: column
+  height: 100vh
+  width: 100vw
+  overflow: hidden
+
+
+  a:hover
+    background-color: transparent
+
+
+  a:focus-visible
+    border: none
+
+
+  .container
+    width: var(--page-width)
+    overflow: auto
+    -ms-overflow-style: none
+    scrollbar-width: none
+
+
+    &::-webkit-scrollbar
+      display: none
+
+
+    &.full
+      display: flex
+      height: 100%
+      width: 100%
+      justify-content: center
+
+
+    .sf-tabs
+      overflow-y: scroll
+
+
+    .toggling
+      transition: all 1s ease-in-out
+
+
+    .hidden
+      opacity: 0
+
+
+    hr
+      margin: 0.5em
+      width: 100%
+
+
+
+
+    [disabled]
+      pointer-events: none
+      filter: grayscale(90%)

@@ -9,19 +9,19 @@ tasks:
   build:
     desc: Build the container image
     cmds:
-      - docker compose up --force-recreate --build
+      - docker-compose up --force-recreate --build
   up:
     desc: Uo the irons
     cmds:
-      - docker compose up
+      - docker-compose up
   shell:
     desc: hax0r
     cmds:
-      - docker compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
+      - docker-compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
 
   nuke:
     cmds:
-      - docker compose rm -v -f
+      - docker-compose rm -v -f
       - docker image prune -a -f
       - docker volume prune -f
 

@@ -1,0 +1,152 @@
+.anim-reveal 
+    animation: reveal 4.5s ease-out
+
+
+.anim-glow 
+    animation: glow 5s ease-in-out alternate infinite
+
+
+.anim-pulse 
+    animation: pulse 1200ms ease-in-out alternate infinite
+
+
+.anim-shine 
+    animation: shine 1200ms ease-in-out alternate infinite
+
+.anim-bounce2 
+    animation: bounce2 2s ease infinite
+
+.anim-bounce 
+    animation: bounce 2s ease infinite
+
+
+.anim-shadow 
+    display: flex
+    justify-content: center
+    align-items: center
+    position: relative
+    color: #fff
+    text-align: center
+    width: 60vh
+    height: 60vh
+    background: linear-gradient(0deg, #000, #262626)
+
+.anim-shadow:before,
+.anim-shadow:after 
+    content: ""
+    position: absolute
+    top: -2px
+    left: -2px
+    background: var(--gradient-shadow)
+    width: calc(100% + 4px)
+    height: calc(100% + 4px)
+    z-index: -1
+    animation: glow-shadow 20s linear infinite
+
+
+.anim-shadow:after 
+    filter: blur(20px)
+
+
+@keyframes glow-shadow 
+    0% 
+        background-position: 0 0
+    
+    50% 
+        background-position: 300% 0
+    
+    100% 
+        background-position: 0 0
+    
+
+
+@keyframes reveal 
+    0% 
+        opacity: 0
+    
+
+    1% 
+        opacity: 0
+    
+
+    100% 
+        opacity: 1
+    
+
+
+@keyframes glow 
+    from 
+        filter: contrast(100%)
+    
+    40% 
+        filter: contrast(200%)
+    
+    to 
+        filter: contrast(150%)
+    
+
+
+@keyframes pulse 
+    0% 
+        transform: scale(0.95)
+    
+
+    70% 
+        transform: scale(1)
+    
+
+    100% 
+        transform: scale(0.95)
+    
+
+
+@keyframes shine 
+    from 
+        background-color: var(--code-bg-color)
+    
+    40% 
+        background-color: var(--error-color)
+    
+    to 
+        background-color: var(--primary-color)
+    
+
+
+@keyframes bounce 
+    70% 
+        transform: translateY(0%)
+    
+    80% 
+        transform: translateY(-15%)
+    
+    90% 
+        transform: translateY(0%)
+    
+    95% 
+        transform: translateY(-7%)
+    
+    97% 
+        transform: translateY(0%)
+    
+    99% 
+        transform: translateY(-3%)
+    
+    100% 
+        transform: translateY(0)
+    
+
+
+@keyframes bounce2 
+    0%,
+    20%,
+    50%,
+    80%,
+    100% 
+        transform: translateY(0)
+    
+    40% 
+        transform: translateY(-30px)
+    
+    60% 
+        transform: translateY(-15px)
+    

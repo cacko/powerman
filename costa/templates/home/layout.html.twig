@@ -1,26 +1,13 @@
 {% extends 'base.html.twig' %}
-
-{% block javascripts %}
-    <script src="//unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script type="module"  src="{{ asset('/js/home.js') }}" ></script>
-{% endblock %}
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('home') }}
+    {% endblock %}
+    {% block javascripts %}
+        {{ encore_entry_script_tags('home') }}
+    {% endblock %}
 {% block content %}
-    <style>
-        .ws-background {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            background-image: url({{ asset('images/ws-background0.webp')  }});
-            align-items: center;
-            justify-content: center;
-            background-repeat: no-repeat;
-            background-blend-mode: darken;
-            background-color: rgba(0,0,0,0.6);
-            display: flex;
-        }}
-    </style>
     <div class="ws-background">
         {% block page_contents %}{% endblock %}
     </div>
+    {% include 'components/clock.html.twig'  %}
 {% endblock %}
