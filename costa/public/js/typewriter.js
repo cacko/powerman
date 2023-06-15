@@ -1,6 +1,6 @@
 const typ_e_writer = (function () {
   const write = (el) => {
-    const typewriter = new Typewriter(el, {delay: 0.5});
+    const typewriter = new Typewriter(el, {delay: 0});
     const pauseFor = Number(el.dataset.pause || 0);
     const toggleClass = el.dataset.toggle || null;
     const tplSelector = el.dataset.tpl || null;
