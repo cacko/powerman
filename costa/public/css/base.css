@@ -85,12 +85,10 @@ hr {
 
 .anim-glow {
   animation: glow 5s ease-in-out alternate infinite;
-  animation-delay: 10s;
 }
 
 .anim-pulse {
   animation: pulse 1200ms ease-in-out alternate infinite;
-  animation-delay: 29s;
 }
 
 .anim-shine {
