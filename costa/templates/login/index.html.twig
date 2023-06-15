@@ -31,6 +31,12 @@
         }
 
         button .image {
+            background-image: url({{ asset('/images/logo.webp') }});
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 60vh;
+            width: 60vh;
         }
     </style>
     <div class="content">
@@ -42,7 +48,7 @@
                 </div>
             </div>
             <a href="{{ path('connect_google') }}">
-                <div  class="image" style="background-image: url({{ asset('/images/logo.webp') }})"></div>
+                <div  class="image"></div>
             </a>
         </button>
     </div>
