@@ -30,19 +30,19 @@
             animation-fill-mode: both;
         }
 
-        button img {
+        button .image {
         }
     </style>
     <div class="content">
 
-        <button class="anim-shadow" style="background-image: url(\"{{ asset('/images/logo.webp') }}\")">
+        <button class="anim-shadow" >
             <div class="reminder anim-reveal">
                 <div class="anim-bounce2">
                     click the big button to login
                 </div>
             </div>
             <a href="{{ path('connect_google') }}">
-                <img src="{{ asset('/images/logo.webp') }}" alt="Power Man" title="Power Man">
+                <div  class="image" style="background-image: url(\"{{ asset('/images/logo.webp') }}\")"></div>
             </a>
         </button>
     </div>
