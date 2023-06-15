@@ -109,23 +109,18 @@ hr {
 }
 
 .anim-shadow {
-
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   color: #fff;
   text-align: center;
-  border-radius: 2em;
-
-  width: 400px;
-  height: 250px;
+  width: 60vh;
+  height: 60vh;
   background: linear-gradient(0deg, #000, #262626);
 }
 .anim-shadow:before,
 .anim-shadow:after {
-  border-radius: 2em;
-
   content: "";
   position: absolute;
   top: -2px;
