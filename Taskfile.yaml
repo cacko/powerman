@@ -6,14 +6,32 @@ vars:
 
 
 tasks:
-  build:
-    desc: Build the container image
-    cmds:
-      - docker-compose up --force-recreate --build
-  up:
+
+  start:
     desc: Uo the irons
+
+    deps:
+      - task: yarn
+        vars:
+          CLI_ARGS: dev-server
+      - task: server
+        vars:
+          CLI_ARGS: start
+
     cmds:
-      - docker-compose up
+      - echo "done"
+
+
+  yarn:
+    desc: run yar cmd
+    cmds:
+      - yarn {{.CLI_ARGS}}
+
+  server:
+    desc: run symfony server
+    cmds:
+      - symfony 'server:'{{.CLI_ARGS}}
+
   shell:
     desc: hax0r
     cmds:
@@ -24,11 +42,6 @@ tasks:
       - docker-compose rm -v -f
       - docker image prune -a -f
       - docker volume prune -f
-
-  composer:
-    desc: run composer
-    cmds:
-      - docker-compose exec {{.CONTAINER_PHP}} ./composer.phar {{.CLI_ARGS}}
 
   console:
     desc: run composer
@@ -57,3 +70,9 @@ tasks:
     cmds:
       - task: push
       - task: pull
+
+  build:
+    desc: install packages
+    cmds:
+      - composer install
+      - yarn install
