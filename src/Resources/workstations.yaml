@@ -1,0 +1,77 @@
+group:
+  zombie:
+    label: Always On
+    suspendAt: 00:00
+    resumeAt: 00:00
+    sleepInterval: 120
+  systems:
+    label: Systems
+    suspendAt: 19:00
+    resumeAt: 07:00
+    sleepInterval: 60
+  ops:
+    label: Ops Team
+    suspendAt: 19:00
+    resumeAt: 07:00
+    sleepInterval: 60
+  bsm:
+    label: BSM Team
+    suspendAt: 18:00
+    resumeAt: 07:00
+    sleepInterval: 60
+  admin:
+    label: Admin Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 60
+  qa:
+    label: QA Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+  tfpay:
+    label: tfPay Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+  sales:
+    label: Sales Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+  pm:
+    label: PM Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+  dev:
+    label: Dev Team
+    suspendAt: 19:00
+    resumeAt: 08:00
+    sleepInterval: 120
+workstation:
+  dev031:
+    group: dev
+  dev012:
+    group: dev
+  sys001:
+    group: systems
+  ops:
+    group: bsm
+    includes:
+      - ops-019
+      - ops-015
+      - ops-026
+      - ops-030
+      - ops-040
+      - ops-028
+      - ops-014
+      - ops-024
+user:
+  alex.spasov:
+    - dev031
+  veselin:
+    - dev012
+  oliver:
+    - ops
+    - systems
