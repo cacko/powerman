@@ -23,30 +23,31 @@ class WorkstationsService
     protected Collection $users;
 
     public function __construct(
-        protected string $resources,
+        protected string          $resources,
+        protected string          $states,
         protected LoggerInterface $logger
-    ) {
-        $data = Yaml::parseFile("{$this->resources}/workstations.yaml");
+    )
+    {
+        $data = Yaml::parseFile($this->resources);
+        $this->workstations = new Collection([]);
         $this->groups = new Collection(array_map(
-            fn($key, $values) => new GroupEntity($key, ...$values),
+            function ($key, $values) {
+                $group = new GroupEntity($key, ...$values);
+                $this->workstations->push(...array_map(
+                    fn($id) => new WorkstationEntity(
+                        $id,
+                        $group,
+                        $this->states . DIRECTORY_SEPARATOR . "{$id}.yaml"
+                    ),
+                    $values['hostnames']
+                ));
+                return $group;
+            },
             array_keys($data['group']),
             $data['group']
         ));
-        $this->logger->info($this->groups);
-        $this->workstations = new Collection(array_map(
-            function($key, array $values) {
-                $config = ['hostname' => $key];
-                $config['group'] = $this->groups->firstWhere('id', $values['group']);
-                if (array_key_exists('includes', $values)) {
-                    $config['includes']  = $values['includes'];
-                }
-                return new WorkstationEntity(...$config);
-            },
-            array_keys($data['workstation']),
-            $data['workstation']
-        ));
         $this->users = new Collection(array_map(
-            function($key, array $values) {
+            function ($key, array $values) {
                 $config = ['username' => $key];
                 $config['email'] = "{$key}@travelfusion.com";
                 $config['workstations'] = array_map(
@@ -60,7 +61,8 @@ class WorkstationsService
         ));
     }
 
-    public function getWorkstations(?User $user): array {
+    public function getWorkstations(?User $user): array
+    {
         if (!$user) {
             return [];
         }

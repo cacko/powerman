@@ -4,61 +4,28 @@ group:
     suspendAt: 00:00
     resumeAt: 00:00
     sleepInterval: 120
+    hostnames:
+      - zmb001
   systems:
     label: Systems
     suspendAt: 19:00
     resumeAt: 07:00
     sleepInterval: 60
+    hostnames:
+      - sys001
   ops:
     label: Ops Team
     suspendAt: 19:00
     resumeAt: 07:00
     sleepInterval: 60
+    hostnames:
+      - ops007
   bsm:
     label: BSM Team
     suspendAt: 18:00
     resumeAt: 07:00
     sleepInterval: 60
-  admin:
-    label: Admin Team
-    suspendAt: 18:00
-    resumeAt: 08:00
-    sleepInterval: 60
-  qa:
-    label: QA Team
-    suspendAt: 18:00
-    resumeAt: 08:00
-    sleepInterval: 120
-  tfpay:
-    label: tfPay Team
-    suspendAt: 18:00
-    resumeAt: 08:00
-    sleepInterval: 120
-  sales:
-    label: Sales Team
-    suspendAt: 18:00
-    resumeAt: 08:00
-    sleepInterval: 120
-  pm:
-    label: PM Team
-    suspendAt: 18:00
-    resumeAt: 08:00
-    sleepInterval: 120
-  dev:
-    label: Dev Team
-    suspendAt: 19:00
-    resumeAt: 08:00
-    sleepInterval: 120
-workstation:
-  dev031:
-    group: dev
-  dev012:
-    group: dev
-  sys001:
-    group: systems
-  ops:
-    group: bsm
-    includes:
+    hostnames:
       - ops-019
       - ops-015
       - ops-026
@@ -67,11 +34,59 @@ workstation:
       - ops-028
       - ops-014
       - ops-024
+  admin:
+    label: Admin Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 60
+    hostnames:
+      - adm001
+  qa:
+    label: QA Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - qa001
+      - qa002
+  tfpay:
+    label: tfPay Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - tfp001
+      - tfp002
+  sales:
+    label: Sales Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - sales001
+      - sales002
+  pm:
+    label: PM Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - pm0001
+      - pm0002
+  dev:
+    label: Dev Team
+    suspendAt: 19:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - dev031
+      - dev012
+      - dev104
 user:
   alex.spasov:
     - dev031
   veselin:
     - dev012
   oliver:
-    - ops
-    - systems
+    - sys001
+    - dev104

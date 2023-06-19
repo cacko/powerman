@@ -12,7 +12,8 @@ class GroupEntity extends AbstractAppEntity
         protected string $label,
         protected string $suspendAt,
         protected string $resumeAt,
-        protected int $sleepInterval
+        protected int $sleepInterval,
+        protected array $hostnames
     ) {
 
     }

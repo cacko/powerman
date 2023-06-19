@@ -2,10 +2,7 @@
 
 namespace App\Entity;
 
-use Doctrine\ORM\EntityRepository;
-use Symfony\Component\PropertyAccess\Exception\InvalidPropertyPathException;
-
-abstract class AbstractAppEntity extends EntityRepository implements \ArrayAccess
+abstract class AbstractAppEntity implements \ArrayAccess
 {
 
     public function offsetExists(mixed $offset): bool
