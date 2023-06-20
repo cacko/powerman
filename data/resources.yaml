@@ -96,6 +96,8 @@ user:
     - ops-024
   veselin:
     - dev012
+    - tfp001
+    - tfp002
   oliver:
     - sys001
     - dev104
