@@ -2,29 +2,45 @@
 
 {% block page_contents %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-
-        <div class="ws-content">
+        <div class="ws-content container">
             <table>
+                <thead>
+                <tr>
+                    <th scope="col">
+                        <strong class="machine">Machine</strong>
+                    </th>
+                    <th scope="col">
+                        <strong class="group">Group</strong>
+                    </th>
+                    <th scope="col">
+                        <strong class="state">State</strong>
+                    </th>
+                    <th scope="col">
+                        <strong class="state">Action</strong>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
                 {% for workstation in workstations %}
                     <tr>
-                        <th>{{ workstation.hostname }}</th>
-                        <th>{{ workstation.group.label }}</th>
+                        <td data-label="Machine">{{ workstation.hostname }}</td>
+                        <td data-label="Group">{{ workstation.group.label }}</td>
+                        <td data-label="State">{{ workstation.hostname }}</td>
+                        <td data-label="Action">{{ workstation.group.label }}</td>
                     </tr>
                 {% endfor %}
+                </tbody>
             </table>
-            <div class="typewriter" data-tpl="#ws-tpl" data-pause="150" data-toggle=".ws-actions, .Typewriter__cursor, hr">
-            </div>
-            <template id="ws-tpl">
-                <div><strong class="user">User</strong> {{ app.user.name }}<br/></div>
-                <div><strong class="email">Email</strong> {{ app.user.email }}<br/></div>                
-                <div><strong class="machine">Machine</strong> dev031.wen.travelfusuion.com</div>
-            </template>
             <div class="ws-actions hidden toggling">
-                <button class="btn btn-ghost">
-                    <i class="lar la-moon la-lg"></i> Suspend
+                <button class="btn btn-ghost c-datepicker-btn">
+                <span class="material-icons-outlined">
+                bedtime
+                </span>Suspend
                 </button>
                 <button class="btn btn-ghost btn-error" disabled>
-                    <i class="lar la-sun la-lg"></i> Wake Up
+                    <span class="material-icons-outlined">
+                    wb_sunny
+                    </span> Wake Up
                 </button>
             </div>
 

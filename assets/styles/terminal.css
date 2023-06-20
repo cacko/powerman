@@ -477,43 +477,92 @@
     visibility: hidden;
     opacity: 0;
   }
-  
+
+table {
+  border: 1px solid var(--header-background);
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
+}
+
+table caption {
+  font-size: 1.5em;
+  margin: .5em 0 .75em;
+}
+
+table tr {
+  border: 1px solid var(--header-background);
+  padding: .35em;
+}
+
+table th,
+table td {
+  padding: .625em;
+  text-align: center;
+}
+
+table th {
+  font-size: .85em;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  background: var(--header-background);
+}
+
+@media screen and (max-width: 600px) {
   table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: var(--global-line-height) 0;
-    color: var(--font-color);
-    font-size: var(--global-font-size);
+    border: 0;
   }
-  
-  table td,
-  table th {
-    vertical-align: top;
-    border: 1px solid var(--font-color);
-    line-height: var(--global-line-height);
-    padding: calc(var(--global-space) / 2);
-    font-size: 1em;
-  }
-  
-  table thead th {
-    font-size: 1em;
-  }
-  
-  table tfoot tr th {
-    font-weight: 500;
-  }
-  
+
   table caption {
-    font-size: 1em;
-    margin: 0 0 1em 0;
+    font-size: 1.3em;
   }
-  
-  table tbody td:first-child {
-    font-weight: 700;
-    color: var(--secondary-color);
+
+  table thead {
+    border: none;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
   }
-  
-  .form {
+
+  table tr {
+    border-bottom: 3px solid var(--header-background);
+    display: block;
+    margin-bottom: .625em;
+  }
+
+  table td {
+    border-bottom: 1px solid var(--header-background);
+    display: block;
+    font-size: .8em;
+    text-align: right;
+  }
+
+  table td::before {
+    /*
+    * aria-label has no advantage, it won't be read inside a table
+    content: attr(aria-label);
+    */
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  table td:last-child {
+    border-bottom: 0;
+  }
+}
+
+
+
+
+.form {
     width: 100%;
   }
   

@@ -26,30 +26,29 @@
       word-break: break-all
 
 
-      strong
-        font-variant: small-caps
-        text-transform: lowercase
-        color: var(--md-sys-color-on-surface-variant)
-        display: inline-flex
-        flex-direction: row
-        align-items: center
-        width: 5em
-        text-align: right
-        justify-content: end
-        column-gap: 0.2em
+    strong
+      font-variant: small-caps
+      text-transform: lowercase
+      color: var(--md-sys-color-on-surface-variant)
+      display: inline-flex
+      flex-direction: row
+      align-items: center
+      width: 5em
+      text-align: right
+      justify-content: end
+      column-gap: 0.2em
 
-        &::after
-          font-family: 'Line Awesome Free', monospace
+      &::before
+        font-family: 'Material Icons', monospace
 
-        &.user::after
-          content: "\f007"
-
-        &.email::after
-          content: "\f1fa"
-
-        &.machine::after
-          content: "\f108"
-
+      &.machine::before
+        content: "\e30a"
+      &.group::before
+        content: "\f233"
+      &.state::before
+        content: "\e63c"
+      &.action::before
+        content: "\e90e"
 
     .ws-actions
       justify-content: space-between
