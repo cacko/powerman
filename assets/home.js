@@ -9,8 +9,7 @@ const picker = new DateTimePicker()
     .on('open', () => console.log('opened'))
     .on('close', () => console.log('closed'));
 
-document.querySelector('.c-datepicker-btn')
-    .addEventListener('click', () => picker.open());
+document.querySelector('.c-datepicker-btn')?.addEventListener('click', () => picker.open());
 
 document.querySelectorAll(".typewriter").forEach((el) => {
     typ_e_writer.write(el);

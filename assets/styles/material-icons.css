@@ -14,7 +14,6 @@
     line-height: 1;
     letter-spacing: normal;
     text-transform: none;
-    display: inline-block;
     white-space: nowrap;
     word-wrap: normal;
     direction: ltr;
@@ -22,4 +21,6 @@
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
     font-feature-settings: "liga";
+    display: inline-flex;
+    vertical-align: top;
 }

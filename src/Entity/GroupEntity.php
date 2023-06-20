@@ -1,12 +1,14 @@
 <?php
 
 namespace App\Entity;
-//label: Always On
-//    suspendAt: 00:00
-//    resumeAt: 00:00
-//    sleepInterval: 120
+
+use DateTime;
+use DateTimeZone;
+use phpDocumentor\Reflection\Types\Static_;
+
 class GroupEntity extends AbstractAppEntity
 {
+    const TZ = 'Europe/London';
     public function __construct(
         protected string $id,
         protected string $label,
@@ -18,6 +20,19 @@ class GroupEntity extends AbstractAppEntity
 
     }
 
-
+    public function getDefaultTrigger(): ?DateTime
+    {
+        $tz = new DateTimeZone(static::TZ);
+        $now = new DateTime('now', $tz);
+        $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
+        $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
+        if ($now > $suspendAt) {
+            return new DateTime("tomorrow {$this->resumeAt}", $tz);
+        }
+        if ($resumeAt > $now) {
+            return $resumeAt;
+        }
+        return null;
+    }
 
 }

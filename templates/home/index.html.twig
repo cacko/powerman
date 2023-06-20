@@ -3,48 +3,15 @@
 {% block page_contents %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
         <div class="ws-content container">
-            <table>
-                <thead>
-                <tr>
-                    <th scope="col">
-                        <strong class="machine">Machine</strong>
-                    </th>
-                    <th scope="col">
-                        <strong class="group">Group</strong>
-                    </th>
-                    <th scope="col">
-                        <strong class="state">State</strong>
-                    </th>
-                    <th scope="col">
-                        <strong class="state">Action</strong>
-                    </th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for workstation in workstations %}
-                    <tr>
-                        <td data-label="Machine">{{ workstation.hostname }}</td>
-                        <td data-label="Group">{{ workstation.group.label }}</td>
-                        <td data-label="State">{{ workstation.hostname }}</td>
-                        <td data-label="Action">{{ workstation.group.label }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
-            <div class="ws-actions hidden toggling">
-                <button class="btn btn-ghost c-datepicker-btn">
-                <span class="material-icons-outlined">
-                bedtime
-                </span>Suspend
-                </button>
-                <button class="btn btn-ghost btn-error" disabled>
-                    <span class="material-icons-outlined">
-                    wb_sunny
-                    </span> Wake Up
-                </button>
-            </div>
-
+            {% if workstations | length > 1 %}
+                {{ include('components/ws-list.html.twig', {workstations: workstations}) }}
+            {% elseif workstations | length == 1 %}
+                {{ include('components/ws-entry.html.twig', {workstation: workstations | first}) }}
+            {% else %}
+                <div class="terminal-alert terminal-alert-error">
+                    {{ error_message() }}
+                </div>
+            {% endif %}
         </div>
-
     {% endif %}
 {% endblock %}

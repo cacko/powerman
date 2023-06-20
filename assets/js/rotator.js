@@ -1,3 +1,5 @@
+import random from "lodash-es/random";
+
 class _rotator {
     constructor(el) {
         this.el = el;
@@ -6,7 +8,7 @@ class _rotator {
     }
 
     start() {
-        this.timer = setInterval(() => this.setBackground(), Math.random() * 200000);
+        this.timer = setInterval(() => this.setBackground(), random(20, 40) * 1000);
     }
 
     stop() {

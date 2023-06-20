@@ -1,0 +1,10 @@
+{% apply spaceless %}
+    {% if state.trigger > 0 %}
+        <i class="material-icons-outlined">bedtime</i>
+        <span>Suspended until</span>
+        <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
+    {% else %}
+        <i class="material-icons-outlined anim-pulse error">bolt</i>
+        <span>Active</span>
+    {% endif %}
+{% endapply %}

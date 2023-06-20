@@ -1,0 +1,32 @@
+<h1>Your machine</h1>
+<div class="ws-grid">
+    <div>
+        <strong class="machine">Machine</strong>
+    </div>
+    <div>
+        <div>{{ workstation.hostname }}</div>
+    </div>
+
+    <div>
+        <strong class="group">Group</strong>
+    </div>
+    <div>
+        <div>{{ workstation.group.label }}</div>
+    </div>
+    <div>
+        <strong class="state">State</strong>
+    </div>
+    <div>
+        <div>
+            {{ include('components/rows/state.html.twig', {state: workstation.state}) }}
+        </div>
+    </div>
+    <div>
+        <strong class="state">Action</strong>
+    </div>
+    <div>
+        <div>
+            {{ workstation.state.ack }}
+        </div>
+    </div>
+</div>

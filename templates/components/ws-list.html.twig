@@ -1,0 +1,41 @@
+<h1>Machines</h1>
+<table>
+    <thead>
+    <tr>
+        <th scope="col">
+            <strong class="machine">Machine</strong>
+        </th>
+        <th scope="col">
+            <strong class="group">Group</strong>
+        </th>
+        <th scope="col">
+            <strong class="state">State</strong>
+        </th>
+        <th scope="col">
+            <strong class="state">Action</strong>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for workstation in workstations %}
+        <tr>
+            <td data-label="Machine">
+                <div>{{ workstation.hostname }}</div>
+            </td>
+            <td data-label="Group">
+                <div>{{ workstation.group.label }}</div>
+            </td>
+            <td data-label="State">
+                <div>
+                    {{ include('components/rows/state.html.twig', {state: workstation.state}) }}
+                </div>
+            </td>
+            <td data-label="Action">
+                <div>
+                    {{ workstation.state.ack }}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

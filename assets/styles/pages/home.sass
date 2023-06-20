@@ -13,8 +13,9 @@
   .ws-content
     display: flex
     flex-direction: column
+    height: 100%
     row-gap: 1em
-    justify-content: center
+    justify-content: flex-start
     align-items: center
     align-self: baseline
     padding: 1em
@@ -40,7 +41,6 @@
 
       &::before
         font-family: 'Material Icons', monospace
-
       &.machine::before
         content: "\e30a"
       &.group::before
@@ -56,13 +56,29 @@
       flex-direction: row
       column-gap: 1em
 
-
       button
         border-radius: 0.2em
-
         &:hover
           filter: drop-shadow(0 0 0.75rem var(--md-sys-color-on-background))
 
+    table
+      td
+        >div
+          display: flex
+          column-gap: 0.3em
+          justify-content: center
+          align-items: center
+          .trigger
+            color: var(--md-sys-color-on-surface-variant)
+
+    .ws-grid
+      display: grid
+      grid-template-columns: auto 1fr
+      column-gap: 1em
+      row-gap: 1em
+
+    .terminal-alert
+      align-self: center
 
 .clock
   position: absolute
@@ -76,16 +92,12 @@
     font-family: VT323, monospace
     color: var(--md-ref-palette-neutral-variant50)
     transition: all 500ms ease-in-out
-    &:hover
-      color: var(--font-color)
-      transform: scale(1.6)
-      cursor: pointer
     .hour
       font-weight: bold
       &::after
         content: ":"
     .seconds
-      font-size: 0.8em
+      color: var(--md-ref-palette-neutral-variant40)
     .minutes:after
       content: ":"
 

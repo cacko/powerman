@@ -12,7 +12,7 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#2d89ef">
     <meta name="theme-color" content="#1A1930">
- <link rel="preconnect" href="//fonts.googleapis.com">
+    <link rel="preconnect" href="//fonts.googleapis.com">
     <link rel="preconnect" href="//fonts.gstatic.com" crossorigin>
     <link
             href="//fonts.googleapis.com/css2?family=VT323&family=Nova+Mono&family=Share+Tech+Mono&display=swap"
@@ -20,15 +20,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
     {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
+        {{ encore_entry_link_tags('app') }}
     {% endblock %}
     {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
+        {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
 <body class="mdc-typography">
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-    {% include 'navbar.html.twig'  %}
+    {% include 'navbar.html.twig' %}
 {% endif %}
 <div class="container full">
     {% block content %}
