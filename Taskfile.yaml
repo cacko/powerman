@@ -64,7 +64,7 @@ tasks:
     desc: pulls from git
     cmds:
       - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};git reset --hard;git pull'
-
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};yarn build'
   pp:
     desc: push and pull
     cmds:
