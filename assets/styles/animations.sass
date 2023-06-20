@@ -1,6 +1,8 @@
 .anim-reveal 
     animation: reveal 4.5s ease-out
 
+.anim-fade
+    animation: fade 05s ease-in-out
 
 .anim-glow 
     animation: glow 5s ease-in-out alternate infinite
@@ -63,24 +65,16 @@
 @keyframes reveal 
     0% 
         opacity: 0
-    
-
     1% 
         opacity: 0
-    
-
     100% 
         opacity: 1
-    
-
 
 @keyframes glow 
     from 
         filter: contrast(100%)
-    
     40% 
         filter: contrast(200%)
-    
     to 
         filter: contrast(150%)
     
@@ -89,12 +83,8 @@
 @keyframes pulse 
     0% 
         transform: scale(0.95)
-    
-
     70% 
         transform: scale(1)
-    
-
     100% 
         transform: scale(0.95)
     
@@ -103,10 +93,8 @@
 @keyframes shine 
     from 
         background-color: var(--code-bg-color)
-    
     40% 
         background-color: var(--error-color)
-    
     to 
         background-color: var(--primary-color)
     
@@ -115,22 +103,16 @@
 @keyframes bounce 
     70% 
         transform: translateY(0%)
-    
     80% 
         transform: translateY(-15%)
-    
     90% 
         transform: translateY(0%)
-    
     95% 
         transform: translateY(-7%)
-    
     97% 
         transform: translateY(0%)
-    
     99% 
         transform: translateY(-3%)
-    
     100% 
         transform: translateY(0)
     
@@ -150,3 +132,10 @@
     60% 
         transform: translateY(-15px)
     
+@keyframes fade
+    0%
+        opacity: 0
+    50%
+        opacity: 1
+    100%
+        opacity: 0

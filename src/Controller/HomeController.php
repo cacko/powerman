@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(WorkstationsService $workstationsService): Response
     {
         return $this->render('home/index.html.twig', [
-            'states' => $workstationsService->getWorkstations($this->getUser())
+            'workstations' => $workstationsService->getWorkstations($this->getUser())
         ]);
     }
 
