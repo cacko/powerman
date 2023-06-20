@@ -9,76 +9,77 @@
   background-blend-mode: darken
   background-color: rgba(0, 0, 0, 0.6)
   display: flex
+  z-index: -1
 
-  .ws-content
-    display: flex
-    flex-direction: column
-    height: 100%
-    row-gap: 1em
-    justify-content: flex-start
+.ws-content
+  display: flex
+  flex-direction: column
+  height: 100%
+  row-gap: 1em
+  justify-content: flex-start
+  align-items: center
+  align-self: baseline
+  padding: 1em
+
+  .typewriter
+    align-self: flex-start
+    text-align: left
+    white-space: break-spaces
+    word-break: break-all
+
+
+  strong
+    font-variant: small-caps
+    text-transform: lowercase
+    color: var(--md-sys-color-on-surface-variant)
+    display: inline-flex
+    flex-direction: row
     align-items: center
-    align-self: baseline
-    padding: 1em
+    width: 5em
+    text-align: right
+    justify-content: end
+    column-gap: 0.2em
 
-    .typewriter
-      align-self: flex-start
-      text-align: left
-      white-space: break-spaces
-      word-break: break-all
+    &::before
+      font-family: 'Material Icons Outlined', monospace
+    &.machine::before
+      content: "\e30a"
+    &.group::before
+      content: "\f233"
+    &.state::before
+      content: "\e63c"
+    &.action::before
+      content: "\e90e"
 
+  .ws-actions
+    justify-content: space-between
+    display: flex
+    flex-direction: row
+    column-gap: 1em
 
-    strong
-      font-variant: small-caps
-      text-transform: lowercase
-      color: var(--md-sys-color-on-surface-variant)
-      display: inline-flex
-      flex-direction: row
-      align-items: center
-      width: 5em
-      text-align: right
-      justify-content: end
-      column-gap: 0.2em
+    button
+      border-radius: 0.2em
+      &:hover
+        filter: drop-shadow(0 0 0.75rem var(--md-sys-color-on-background))
 
-      &::before
-        font-family: 'Material Icons Outlined', monospace
-      &.machine::before
-        content: "\e30a"
-      &.group::before
-        content: "\f233"
-      &.state::before
-        content: "\e63c"
-      &.action::before
-        content: "\e90e"
+  table
+    td
+      >div
+        display: flex
+        column-gap: 0.3em
+        justify-content: center
+        align-items: center
+        .trigger
+          color: var(--md-sys-color-on-surface-variant)
 
-    .ws-actions
-      justify-content: space-between
-      display: flex
-      flex-direction: row
-      column-gap: 1em
+  .ws-grid
+    display: grid
+    grid-template-columns: auto 1fr
+    column-gap: 1em
+    row-gap: 1em
 
-      button
-        border-radius: 0.2em
-        &:hover
-          filter: drop-shadow(0 0 0.75rem var(--md-sys-color-on-background))
-
-    table
-      td
-        >div
-          display: flex
-          column-gap: 0.3em
-          justify-content: center
-          align-items: center
-          .trigger
-            color: var(--md-sys-color-on-surface-variant)
-
-    .ws-grid
-      display: grid
-      grid-template-columns: auto 1fr
-      column-gap: 1em
-      row-gap: 1em
-
-    .terminal-alert
-      align-self: center
+  .terminal-alert
+    align-self: center
 
 .clock
   position: absolute

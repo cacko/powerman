@@ -8,10 +8,9 @@
         {{ encore_entry_script_tags('home') }}
     {% endblock %}
 {% block content %}
-    <div class="ws-background">
-        {% block page_contents %}{% endblock %}
-    </div>
+    <div class="ws-background"></div>
+    {% block page_contents %}{% endblock %}
 {% endblock %}
 {% block footer %}
-    {% include 'components/clock.html.twig'  %}
-{%  endblock %}
+    {% include 'components/clock.html.twig' %}
+{% endblock %}
