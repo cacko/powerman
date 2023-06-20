@@ -42,33 +42,32 @@
 
     &::before
       font-family: 'Material Icons Outlined', monospace
+
     &.machine::before
       content: "\e30a"
+
     &.group::before
       content: "\f233"
+
     &.state::before
       content: "\e63c"
+
     &.action::before
       content: "\e90e"
 
-  .ws-actions
-    justify-content: space-between
-    display: flex
-    flex-direction: row
-    column-gap: 1em
-
-    button
-      border-radius: 0.2em
-      &:hover
-        filter: drop-shadow(0 0 0.75rem var(--md-sys-color-on-background))
-
   table
+    background-color: rgba(255, 255, 255, 0.1)
+    font-variant: small-caps
+    th
+      font-size: 1.1em
+
     td
-      >div
+      > div
         display: flex
         column-gap: 0.3em
         justify-content: center
         align-items: center
+
         .trigger
           color: var(--md-sys-color-on-surface-variant)
 
@@ -82,13 +81,15 @@
     align-self: center
 
 .clock
-    display: flex
-    flex-direction: row
-    align-items: center
-    font-family: VT323, monospace
-    transition: all 500ms ease-in-out
-    .hour:after
-      content: ":"
-    .minutes:after
-      content: ":"
+  display: flex
+  flex-direction: row
+  align-items: center
+  font-family: VT323, monospace
+  transition: all 500ms ease-in-out
+
+  .hour:after
+    content: ":"
+
+  .minutes:after
+    content: ":"
 

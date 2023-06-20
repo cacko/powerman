@@ -686,7 +686,11 @@ table th {
     position: relative;
     z-index: 1;
   }
-  
+
+  .btn:hover {
+    filter: drop-shadow(0 0 0.75rem var(--md-sys-color-on-background));
+  }
+
   .btn:active {
     box-shadow: none;
   }
@@ -758,15 +762,16 @@ table th {
   }
   
   .btn-primary {
-    color: var(--invert-font-color);
-    background-color: var(--primary-color);
-    border: 1px solid var(--primary-color);
+    color: var(--font-color);
+    background-color: var( --md-sys-color-on-primary);
+    border: 1px solid var( --md-sys-color-on-primary);
   }
   
   .btn-primary:hover,
   .btn-primary:focus:not(.btn-ghost) {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
+    color: var(--invert-font-color);
   }
   
   .btn-primary.btn-ghost {

@@ -1,6 +1,6 @@
 {% apply spaceless %}
     {% if state.trigger > 0 %}
-        <i class="material-icons-outlined">bedtime</i>
+        <i class="material-icons-outlined">battery_saver</i>
         <span>Suspended until</span>
         <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
     {% else %}
