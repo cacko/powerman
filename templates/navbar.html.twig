@@ -7,13 +7,22 @@
         <nav class="terminal-menu">
             <ul vocab="https://schema.org/" typeof="BreadcrumbList">
                 <li property="itemListElement" typeof="ListItem" class="user-info">
-                        <div class="username">{{ app.user.name }}</div>
+                    <div class="menu-item-segment">
+                        {% include 'components/clock.html.twig' %}
+                        <i class="material-icons">electrical_services</i>
+                    </div>
+                    <div class="menu-item-segment">
+                        <div class="username">
+                            {{ app.user.name }}
+                        </div>
                         <div class="avatar" style="background-image: url({{ app.user.avatar }})" >
                             <a href="{{ path('app_logout') }}">
                                 <img src="{{ app.user.avatar }}" alt="{{ app.user.name }}">
                             </a>
                         </div>
                         <meta property="position" content="1">
+                    </div>
+
                 </li>
             </ul>
         </nav>

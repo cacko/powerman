@@ -1,15 +1,30 @@
 .terminal-menu
+
+    ul
+        margin: 0
+        padding: 0.5em 0
+
+    .menu-item-segment
+        display: flex
+        align-items: center
+        column-gap: 0.3em
+
+
+        @media screen and (max-width: 600px)
+            &:first-of-type
+                flex-direction: row-reverse
+
     .user-info
         display: flex
         align-items: center
         column-gap: 0.4em
 
+        @media screen and (max-width: 600px)
+            justify-content: space-between
 
         .username
             font-variant: small-caps
             text-transform: lowercase
-
-
 
         .avatar
             background-repeat: no-repeat
@@ -19,8 +34,6 @@
             height: 2em
             border-radius: 50%
             border: solid 0.1em var(--code-bg-color)
-
-
             img
                 opacity: 0
                 width: 100%
@@ -35,7 +48,9 @@
     .terminal-prompt
         text-transform: uppercase
 
-
+@media screen and (max-width: 600px)
+    .terminal-logo
+        display: none
 
 .container
     &.navbar

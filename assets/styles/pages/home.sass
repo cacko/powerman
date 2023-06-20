@@ -82,23 +82,13 @@
     align-self: center
 
 .clock
-  position: absolute
-  left: 0
-  bottom: 1em
-  >div
     display: flex
     flex-direction: row
     align-items: center
-
     font-family: VT323, monospace
-    color: var(--md-ref-palette-neutral-variant50)
     transition: all 500ms ease-in-out
-    .hour
-      font-weight: bold
-      &::after
-        content: ":"
-    .seconds
-      color: var(--md-ref-palette-neutral-variant40)
+    .hour:after
+      content: ":"
     .minutes:after
       content: ":"
 
