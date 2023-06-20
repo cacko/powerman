@@ -64,12 +64,16 @@ tasks:
     desc: pulls from git
     cmds:
       - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};git reset --hard;git pull'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};bin/console cache:clear'
       - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};yarn build'
-  pp:
-    desc: push and pull
+
+  deploy:
+    desc: clear cache and build
     cmds:
       - task: push
       - task: pull
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};bin/console cache:clear'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};yarn build'
 
   build:
     desc: install packages
