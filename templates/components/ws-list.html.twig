@@ -32,7 +32,7 @@
             </td>
             <td data-label="Action">
                 <div>
-                    {{ workstation.state.ack }}
+                    {{ include('components/rows/action.html.twig', {state: workstation.state}) }}
                 </div>
             </td>
         </tr>

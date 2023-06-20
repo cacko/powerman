@@ -777,8 +777,8 @@ table th {
   
   .btn-primary.btn-ghost:focus,
   .btn-primary.btn-ghost:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
+    border-color: var(--md-ref-palette-primary100);
+    color: var(--md-ref-palette-primary100);
     z-index: 2;
   }
   
