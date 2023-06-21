@@ -1,5 +1,5 @@
 import './styles/app.sass';
-import 'animate.css';
+import '~animate.css/animate.css';
 import {Rotator} from "./js/rotator.js";
 import {Animator} from "./js/animator";
 
