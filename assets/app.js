@@ -2,11 +2,11 @@ import './styles/app.sass';
 import {Rotator} from "./js/rotator.js";
 import {Animator} from "./js/animator";
 
-window.addEventListener("load", () => {
-    Rotator.start();
-    Animator.start();
-});
-window.addEventListener("beforeunload", () => {
-    Rotator.stop()
-    Animator.stop();
-});
+const onAway = () => Rotator.stop() && Animator.stop();
+const onActive = () => Rotator.start() && Animator.start()
+
+window.addEventListener("load", onActive);
+window.addEventListener("beforeunload", onAway);
+
+window.addEventListener("focus", onActive);
+window.addEventListener("blur", onAway);
