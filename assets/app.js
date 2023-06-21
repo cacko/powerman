@@ -3,7 +3,7 @@ import {Rotator} from "./js/rotator.js";
 import {Animator} from "./js/animator";
 
 const onAway = () => Rotator.stop() && Animator.stop();
-const onActive = () => Rotator.start() && Animator.start()
+const onActive = () => Rotator.start() && Animator.start();
 
 window.addEventListener("load", onActive);
 window.addEventListener("beforeunload", onAway);

@@ -18,10 +18,11 @@ class _animator {
         if (this.el) {
             this.timer = setInterval(() => this.setAnimation(), this.delay * 1000);
         }
+        return !!this.timer;
     }
 
     stop() {
-        this.timer && clearInterval(this.timer);
+        return this.timer && clearInterval(this.timer);
     }
 
     get target() {
