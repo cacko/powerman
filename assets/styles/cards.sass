@@ -1,0 +1,20 @@
+$list2: rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 25%, rgba(0,0,0, 0.5) 50%, rgba(0, 0, 0, 0.6) 66%, rgba(0, 0, 0, 0.4) 75%, rgba(0, 0, 0, 0) 100%
+
+@mixin gradient($direction, $list)
+  background: -webkit-linear-gradient($direction, $list)
+  background: -moz-linear-gradient($direction, $list)
+  background: -o-linear-gradient($direction, $list)
+  background: linear-gradient($direction, $list)
+
+
+.terminal-card
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  row-gap: 2em
+  padding: 2em
+  width: 190%
+  @include gradient(left, $list2)
+
+  

@@ -4,7 +4,7 @@
         <span>Suspended until</span>
         <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
     {% else %}
-        <i class="material-icons-outlined anim-pulse error">bolt</i>
+        <i class="material-icons-outlined animate__animated animate__pulse animate__infinite error">bolt</i>
         <span>Active</span>
     {% endif %}
 {% endapply %}

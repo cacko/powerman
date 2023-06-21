@@ -43,10 +43,15 @@
 .terminal-nav 
     width: var(--page-width)
     max-width: 100%
-
-
     .terminal-prompt
         text-transform: uppercase
+        display: flex
+        column-gap: 0.2em
+        .brand_title
+            display: flex
+            flex-direction: row
+        .word_end
+            padding-right: 0.5rem
 
 @media screen and (max-width: 600px)
     .terminal-logo

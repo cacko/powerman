@@ -1,8 +1,35 @@
 <div class="container navbar">
     <div class="terminal-nav">
         <header class="terminal-logo">
-            <div class="logo terminal-prompt"><a href="/" class="no-style">Power Management
-                    Console</a></div>
+            <div class="logo terminal-prompt">
+                <a href="/" class="no-style uses-animator brand_title"
+                   data-animations="animate__bounce,animate__rubberBand,animate__rubberBand,animate__jello,animate__flip,animate__rotateIn,animate__hinge,animate__jackInTheBox"
+                   data-delay="5" data-use-children="1">
+                    {% apply spaceless %}
+                        <div>P</div>
+                        <div>o</div>
+                        <div>w</div>
+                        <div>e</div>
+                        <div class="word_end">r</div>
+                        <div>M</div>
+                        <div>a</div>
+                        <div>n</div>
+                        <div>a</div>
+                        <div>g</div>
+                        <div>e</div>
+                        <div>m</div>
+                        <div>e</div>
+                        <div>n</div>
+                        <div class="word_end">t</div>
+                        <div>C</div>
+                        <div>o</div>
+                        <div>n</div>
+                        <div>s</div>
+                        <div>o</div>
+                        <div>le</div>
+                    {% endapply %}
+                </a>
+            </div>
         </header>
         <nav class="terminal-menu">
             <ul vocab="https://schema.org/" typeof="BreadcrumbList">
@@ -15,7 +42,7 @@
                         <div class="username">
                             {{ app.user.name }}
                         </div>
-                        <div class="avatar" style="background-image: url({{ app.user.avatar }})" >
+                        <div class="avatar" style="background-image: url({{ app.user.avatar }})">
                             <a href="{{ path('app_logout') }}">
                                 <img src="{{ app.user.avatar }}" alt="{{ app.user.name }}">
                             </a>
