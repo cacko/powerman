@@ -70,4 +70,12 @@ class WorkstationsService
         $entity = $this->users->firstWhere('email', $user->getEmail());
         return $entity ? $entity['workstations'] : [];
     }
+
+    public function getWorkstation(string $hostname): WorkstationEntity
+    {
+        /** @var WorkstationEntity $entity */
+        $entity = $this->workstations->firstWhere('hostname', $hostname);
+        assert($entity);
+        return $entity;
+    }
 }

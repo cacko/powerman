@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Security;
+
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use KnpU\OAuth2ClientBundle\Client\OAuth2ClientInterface;
 use KnpU\OAuth2ClientBundle\Security\User\OAuthUser;
@@ -16,7 +17,7 @@ class UserProvider extends OAuthUserProvider
 {
 
     public function __construct(
-        protected RequestStack $requestStack,
+        protected RequestStack   $requestStack,
         protected ClientRegistry $clientRegistry
 
     )
@@ -51,11 +52,13 @@ class UserProvider extends OAuthUserProvider
         return User::class === $class;
     }
 
-    protected function getSession(): SessionInterface {
+    protected function getSession(): SessionInterface
+    {
         return $this->requestStack->getSession();
     }
 
-    protected function getClient(): OAuth2ClientInterface  {
+    protected function getClient(): OAuth2ClientInterface
+    {
         return $this->clientRegistry->getClient("google_main");
     }
 

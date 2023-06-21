@@ -4,6 +4,11 @@ namespace App\Entity;
 
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * @property-read string $hostname
+ * @property-read GroupEntity $group
+ * @property-read ?StateEntity $state
+ */
 class WorkstationEntity extends AbstractAppEntity
 {
 

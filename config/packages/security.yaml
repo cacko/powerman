@@ -1,15 +1,18 @@
 security:
-    providers:
-        oauth:
-            id: App\Security\UserProvider
-    firewalls:
-        main:
-            custom_authenticators:
-                - App\Security\GoogleAuthenticator
-            logout:
-                path: app_logout
-    access_control:
-        - { path: '^/login', roles: PUBLIC_ACCESS }
-        - { path: '^/logout', roles: PUBLIC_ACCESS }
-        - { path: '^/policy', roles: PUBLIC_ACCESS }
-        - { path: '^/', roles: ROLE_USER }
+  providers:
+    oauth:
+      id: App\Security\UserProvider
+  firewalls:
+    main:
+      custom_authenticators:
+        - App\Security\GoogleAuthenticator
+      logout:
+        path: app_logout
+  role_hierarchy:
+    ROLE_ADMIN: ROLE_USER
+    ROLE_SUPER_ADMIN: [ ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH ]
+  access_control:
+    - { path: '^/login', roles: PUBLIC_ACCESS }
+    - { path: '^/logout', roles: PUBLIC_ACCESS }
+    - { path: '^/policy', roles: PUBLIC_ACCESS }
+    - { path: '^/', roles: ROLE_USER }

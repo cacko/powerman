@@ -6,6 +6,14 @@ use DateTime;
 use DateTimeZone;
 use Symfony\Component\Validator\Constraints\Date;
 
+/**
+ * @property-read string $id
+ * @property-read string $label
+ * @property-read string $suspendAt
+ * @property-read string $resumeAt
+ * @property-read int $sleepInterval
+ * @property-read string[] $hostnames
+ */
 class GroupEntity extends AbstractAppEntity
 {
     const TZ = 'Europe/London';
