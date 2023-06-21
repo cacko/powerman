@@ -8,6 +8,7 @@ class _rotator {
     }
 
     start() {
+        this.stop();
         this.timer = setInterval(() => this.setBackground(), random(30, 45) * 1000);
         return !!this.timer;
     }

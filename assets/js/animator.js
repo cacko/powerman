@@ -15,6 +15,7 @@ class _animator {
     }
 
     start() {
+        this.stop();
         if (this.el) {
             this.timer = setInterval(() => this.setAnimation(), this.delay * 1000);
         }
