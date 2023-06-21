@@ -21,7 +21,6 @@
         "build": "encore production --progress"
     },
     "dependencies": {
-        "animate.css": "^4.1.1",
         "lodash-es": "^4.17.21",
         "material-datetime-picker": "^2.4.0"
     }

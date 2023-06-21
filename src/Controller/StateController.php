@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Http\Attribute\IsGranted;
 use Symfony\Polyfill\Intl\Icu\Exception\NotImplementedException;
 
 class StateController extends AbstractController
@@ -28,6 +29,7 @@ class StateController extends AbstractController
     }
 
     #[Route('/state/{id}', name: 'state_update', methods: 'post')]
+    #[IsGranted('update', 'state', 'KMY', 404)]
     public function update(): Response
     {
         throw new NotImplementedException();
