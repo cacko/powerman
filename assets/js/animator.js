@@ -9,7 +9,7 @@ class _animator {
             this.animations = el.dataset.animations.split(",");
             this.delay = el.dataset.delay;
             if (el.dataset.useChildren) {
-                this.children = [...this.el.children];
+                this.children = [...this.el.children].filter(el => !el.classList.contains('animator-false'));
             }
         }
     }
