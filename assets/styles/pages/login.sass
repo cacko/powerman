@@ -7,10 +7,18 @@
   row-gap: 3em
 
   .tf-logo
-    height: 5em
+    height: auto
+    width: 50vw
     position: relative
     svg
       height: 100%
 
   button
     font-variant: small-caps
+
+@media screen and (max-width: 600px)
+  .content
+    width: 100%
+    padding: 0
+    .tf-logo
+          width: 100%

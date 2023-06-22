@@ -1,6 +1,6 @@
 {
-  "name": "PowerMan",
-  "short_name": "Power",
+  "name": "	Wake-On-LAN",
+  "short_name": "WOL",
   "icons": [
     {
       "src": "/icons/android-chrome-192x192.png",

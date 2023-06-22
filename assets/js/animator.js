@@ -17,13 +17,13 @@ class _animator {
     start() {
         this.stop();
         if (this.el) {
-            this.timer = setInterval(() => this.setAnimation(), this.delay * 1000);
+            this.timer = setTimeout(() => this.setAnimation(), this.delay * 1000);
         }
         return !!this.timer;
     }
 
     stop() {
-        return this.timer && clearInterval(this.timer);
+        return this.timer && clearTimeout(this.timer);
     }
 
     get target() {
@@ -42,6 +42,7 @@ class _animator {
         target.addEventListener('animationend', () => {
            target.classList.remove(...addClasses);
         }, {once: true});
+        this.start();
     };
 };
 
