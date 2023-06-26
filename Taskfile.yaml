@@ -72,8 +72,9 @@ tasks:
     cmds:
       - task: push
       - task: pull
-      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};bin/console cache:clear'
       - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};yarn build'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};APP_ENV=prod APP_DEBUG=0 php bin/console cache:warmup'
 
   build:
     desc: install packages
