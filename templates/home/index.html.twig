@@ -13,5 +13,18 @@
                 </div>
             {% endif %}
         </div>
+        <template id="dt-selector">
+            <div class="outside">
+                <div class="inside">
+                    <form data-template="/state/<%= action %>/<%= id %>" data-template_dst="action">
+                        <button class="btn btn-primary" data-template="<%= action %> Now"></button>
+                        <hr/>
+                        <label for="dt" data-template="<%= action %> at"></label>
+                        <input id="dt" min="" name="dt" type="datetime-local">
+                        <button class="btn btn-secondary" data-template="<%= action %> Schedule"></button>
+                    </form>
+                </div>
+            </div>
+        </template>
     {% endif %}
 {% endblock %}

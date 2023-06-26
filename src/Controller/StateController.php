@@ -28,9 +28,16 @@ class StateController extends AbstractController
         return new Response($entity->state->trigger);
     }
 
-    #[Route('/state/{id}', name: 'state_update', methods: 'post')]
+    #[Route('/state/resume/{id}', name: 'state_resume', methods: 'post')]
     #[IsGranted('update', 'state', 'KMY', 404)]
-    public function update(): Response
+    public function resume(): Response
+    {
+        throw new NotImplementedException();
+    }
+
+    #[Route('/state/suspend/{id}', name: 'state_suspend', methods: 'post')]
+    #[IsGranted('update', 'state', 'KMY', 404)]
+    public function suspend(): Response
     {
         throw new NotImplementedException();
     }

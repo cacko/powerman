@@ -1,3 +1,6 @@
+@use '../mixins'
+$overlay-list: rgba(116, 119, 127,0) 0%, rgba(116, 119, 127,0.4) 25%, rgba(116, 119, 127, 0.5) 50%, rgba(116, 119, 127, 0.6) 66%, rgba(116, 119, 127, 0.4) 75%, rgba(116, 119, 127, 0) 100%
+
 .ws-content
   display: flex
   flex-direction: column
@@ -83,3 +86,25 @@
   .minutes:after
     content: ":"
 
+.overlay
+  position: fixed
+  height: 100%
+  width: 100%
+  background-color: rgba(0,0,0,0.8)
+  display: flex
+  top: 0
+  left: 0
+  justify-content: center
+  align-items: center
+  flex-direction: column
+  >div.outside
+    padding: 1em
+    display: flex
+    width: 100%
+    justify-content: center
+    align-items: center
+    @include mixins.gradient(left, $overlay-list)
+    div.inside
+      display: flex
+      flex-direction: column
+      row-gap: 0.5em

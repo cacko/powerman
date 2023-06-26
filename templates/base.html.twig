@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en-US">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Wake-On-LAN!{% endblock %}</title>
@@ -17,8 +17,6 @@
     <link
             href="//fonts.googleapis.com/css2?family=VT323&family=Nova+Mono&family=Share+Tech+Mono&family=Audiowide&display=swap"
             rel="stylesheet" crossorigin>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/rome/2.1.22/rome.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.js"></script>
     {% block stylesheets %}
         {{ encore_entry_link_tags('app') }}
     {% endblock %}
@@ -30,7 +28,7 @@
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     {% include 'navbar.html.twig' %}
 {% endif %}
-<div class="container full">
+<div class="container full root">
     <div class="ws-background"></div>
 
     {% block content %}

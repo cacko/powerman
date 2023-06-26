@@ -3,6 +3,7 @@ $s: .45em
 $color: var(--md-sys-color-outline-dark)
 
 .btn
+  cursor: pointer
   padding: calc(.3em + $s) calc(.5em + $s)
   color: $color
   $p: $s
@@ -29,6 +30,11 @@ $color: var(--md-sys-color-outline-dark)
     color: var(--font-color)
     background-color: var(--md-sys-color-on-primary)
     border: 1px solid var(--md-sys-color-on-primary)
+
+  &.btn-secondary
+    color: var(--invert-font-color)
+    background-color: var(--error-color)
+    border: 1px solid var(--error-color)
 
   &.btn-ghost
     border: none

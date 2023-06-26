@@ -32,7 +32,7 @@
             </td>
             <td data-label="Action">
                 <div>
-                    {{ include('components/rows/action.html.twig', {state: workstation.state}) }}
+                    {{ include('components/rows/action.html.twig', {state: workstation.state, hostname: workstation.hostname}) }}
                 </div>
             </td>
         </tr>
