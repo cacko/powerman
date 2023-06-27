@@ -55,14 +55,42 @@ $overlay-list: rgba(116, 119, 127,0) 0%, rgba(116, 119, 127,0.4) 25%, rgba(116, 
       font-size: 1.1em
 
     td
-      > div
+      div.column
         display: flex
+        column-gap: 0.3em
+        flex-direction: column
+        justify-content: center
+        align-items: center
+
+        &.flex-start
+          align-items: flex-start
+
+        .trigger
+          color: var(--md-sys-color-on-surface-variant)
+
+        .value
+          font-family: VT323
+          color: var(--md-sys-color-on-surface-variant)
+
+      div.row
+        display: flex
+        flex-direction: row
         column-gap: 0.3em
         justify-content: center
         align-items: center
 
-        .trigger
-          color: var(--md-sys-color-on-surface-variant)
+
+
+        &.sub
+          font-size: 0.8em
+
+      .label
+        white-space: nowrap
+
+      .pending
+        color: var(--md-sys-color-on-surface-variant)
+        text-decoration: line-through
+
 
   .ws-grid
     display: grid
@@ -97,7 +125,10 @@ $overlay-list: rgba(116, 119, 127,0) 0%, rgba(116, 119, 127,0.4) 25%, rgba(116, 
   justify-content: center
   align-items: center
   flex-direction: column
-  >div.outside
+  div.destroy
+    flex-grow: 1
+    width: 100%
+  div.outside
     padding: 1em
     display: flex
     width: 100%

@@ -4,7 +4,6 @@ namespace App\Entity;
 
 use DateTime;
 use DateTimeZone;
-use Symfony\Component\Validator\Constraints\Date;
 
 /**
  * @property-read string $id
@@ -27,37 +26,56 @@ class GroupEntity extends AbstractAppEntity
         protected array  $hostnames
     )
     {
+    }
+
+
+    public function getDefaultTrigger(): int
+    {
+        try {
+            $tz = new DateTimeZone(static::TZ);
+            $now = new DateTime('now', $tz);
+            $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
+            $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
+            if ($now > $suspendAt) {
+                return (new DateTime("tomorrow {$this->resumeAt}", $tz))->getTimestamp();
+            }
+            if ($resumeAt > $now) {
+                return $resumeAt->getTimestamp();
+            }
+            return 0;
+        } catch (\Exception $e) {
+            dump($e);
+        }
+        return 0;
 
     }
 
-    public function getDefaultTrigger(): ?DateTime
+    public function getNextTrigger(int $trigger): int
     {
-        $tz = new DateTimeZone(static::TZ);
-        $now = new DateTime('now', $tz);
-        $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
-        $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
-        if ($now > $suspendAt) {
-            return new DateTime("tomorrow {$this->resumeAt}", $tz);
-        }
-        if ($resumeAt > $now) {
-            return $resumeAt;
-        }
-        return null;
-    }
+        try {
+            $tz = new DateTimeZone(static::TZ);
+            $now = new DateTime('now', $tz);
+            if ($trigger < 0) {
+                $suspendAt = new DateTime(sprintf("@%d", abs($trigger)), $tz);
+                $resumeAt = new DateTime("tomorrow {$this->resumeAt}", $tz);
+                return $now > $suspendAt ? $resumeAt->getTimestamp() : $trigger;
+            }
+            if ($trigger > 0) {
+                $resumeAt = new DateTime("@{$trigger}", $tz);
+                return $now > $resumeAt ? 0 : $trigger;
+            }
 
-    public function getNextTrigger(int $trigger): ?DateTime
-    {
-        $tz = new DateTimeZone(static::TZ);
-        $now = new DateTime('now', $tz);
-        $resumeAt = $trigger ? new DateTime("@{$trigger}", $tz) : new DateTime("today {$this->resumeAt}", $tz);
-        $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
-        if ($now > $suspendAt) {
-            return new DateTime("tomorrow {$this->resumeAt}", $tz);
+            $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
+            $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
+
+            if ($now > $resumeAt && $now < $suspendAt) {
+                return $suspendAt->getTimestamp();
+            }
+            return 0;
+        } catch (\Exception $e) {
+            dump($e);
         }
-        if ($resumeAt > $now) {
-            return $resumeAt;
-        }
-        return null;
+        return 0;
     }
 
 }

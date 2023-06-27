@@ -20,18 +20,20 @@
     {% for workstation in workstations %}
         <tr>
             <td data-label="Machine">
-                <div>{{ workstation.hostname }}</div>
+                <div class="row">
+                    {{ workstation.hostname }}</div>
             </td>
             <td data-label="Group">
-                <div>{{ workstation.group.label }}</div>
+                <div class="row">
+                    {{ workstation.group.label }}</div>
             </td>
             <td data-label="State">
-                <div>
+                <div class="row">
                     {{ include('components/rows/state.html.twig', {state: workstation.state}) }}
                 </div>
             </td>
             <td data-label="Action">
-                <div>
+                <div class="row">
                     {{ include('components/rows/action.html.twig', {state: workstation.state, hostname: workstation.hostname}) }}
                 </div>
             </td>

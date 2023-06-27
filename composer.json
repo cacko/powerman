@@ -9,6 +9,7 @@
         "ext-iconv": "*",
         "amphp/http-client": "^3.0",
         "illuminate/collections": "^10.13",
+        "knplabs/knp-time-bundle": "^1.20",
         "knpuniversity/oauth2-client-bundle": "^2.15",
         "league/oauth2-google": "^4.0",
         "phpdocumentor/reflection-docblock": "^5.3",

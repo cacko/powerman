@@ -1,10 +1,19 @@
 {% apply spaceless %}
-    {% if state.trigger > 0 %}
-        <i class="material-icons-outlined">battery_saver</i>
-        <span>Suspended until</span>
-        <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
-    {% else %}
-        <i class="material-icons-outlined animate__animated animate__pulse animate__infinite error">bolt</i>
-        <span>Active</span>
-    {% endif %}
+    <div class="column flex-start">
+        <div class="row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}"">
+            {% if state.trigger > 0 %}
+                <i class="material-icons-outlined">battery_saver</i>
+                <span class="label">Suspended until</span>
+                <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
+            {% else %}
+                <i class="material-icons-outlined animate__animated animate__pulse animate__infinite error">bolt</i>
+                <span>Active</span>
+            {% endif %}
+        </div>
+        <div class="row sub">
+            <i class="material-icons-outlined">network_ping</i>
+            <span class="label">Last Ack</span>
+            <span class="value">{{ state.last_ack ? date(state.last_ack, timezone=tz)|ago : "unknown" }}</span>
+        </div>
+    </div>
 {% endapply %}

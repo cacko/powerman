@@ -23,25 +23,26 @@ class WorkstationEntity extends AbstractAppEntity
 
     }
 
-    protected function loadState()
+    protected function loadState(): StateEntity
     {
+        $default = $this->group->getDefaultTrigger();
+        $config = [
+            'trigger' => $default,
+            'ack' => 0,
+            'last_ack' => 0,
+        ];
         if (!file_exists($this->location)) {
-            $default = $this->group->getDefaultTrigger()?->getTimestamp() ?: 0;
-            $config = [
-                'trigger' => $default,
-                'ack' => 0
-            ];
             return $this->writeState($config);
         }
-        $config = Yaml::parseFile($this->location);
-
-        $state = new StateEntity(...$config);
-        $trigger = $state['trigger'];
-        $nextTrigger = $this->group->getNextTrigger($trigger)?->getTimestamp() ?: 0;
+        $data = Yaml::parseFile($this->location);
+        $state = new StateEntity(...[...$config, ...$data]);
+        $trigger = $state->trigger;
+        $nextTrigger = $this->group->getNextTrigger($trigger);
         if ($trigger != $nextTrigger) {
             return $this->writeState([
                 'trigger' => $nextTrigger,
-                'ack' => 0
+                'ack' => 0,
+                'last_ack' => $state->last_ack
             ]);
         }
         return $state;

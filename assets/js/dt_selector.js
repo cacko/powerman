@@ -35,7 +35,9 @@ class _overlay {
     }
 
     #startListeners() {
-        this.$overlay.addEventListener("click", () => this.#destroy())
+        this.$overlay
+            .querySelectorAll(".destroy")
+            .forEach((el) => el.addEventListener("click", () => this.#destroy()));
     }
 
     #destroy() {
