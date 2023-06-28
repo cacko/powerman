@@ -38,6 +38,8 @@ class _overlay {
         $container.append(this.$overlay);
 
         new AirDatepicker('#dt');
+        new AirDatepicker('#tm', {    timepicker: true,});
+
 
         this.#startListeners();
     }

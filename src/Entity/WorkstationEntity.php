@@ -31,6 +31,7 @@ class WorkstationEntity extends AbstractAppEntity
             'ack' => 0,
             'last_ack' => 0,
         ];
+
         if (!file_exists($this->location)) {
             return $this->writeState($config);
         }
@@ -63,5 +64,11 @@ class WorkstationEntity extends AbstractAppEntity
             default => parent::offsetGet($offset),
         };
     }
+
+    public function __get($name)
+    {
+        return $this->offsetGet($name);
+    }
+
 
 }

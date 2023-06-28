@@ -62,16 +62,17 @@ class GroupEntity extends AbstractAppEntity
             }
             if ($trigger > 0) {
                 $resumeAt = new DateTime("@{$trigger}", $tz);
-                return $now > $resumeAt ? 0 : $trigger;
+                return $now < $resumeAt ? 0 : $trigger;
             }
 
             $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
             $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
 
             if ($now > $resumeAt && $now < $suspendAt) {
-                return $suspendAt->getTimestamp();
+                return 0;
             }
-            return 0;
+            return $suspendAt->getTimestamp();
+
         } catch (\Exception $e) {
             dump($e);
         }

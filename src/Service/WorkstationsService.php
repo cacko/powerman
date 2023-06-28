@@ -29,6 +29,7 @@ class WorkstationsService
     )
     {
         $data = Yaml::parseFile($this->resources);
+        dump($data);
         $this->workstations = new Collection([]);
         $this->groups = new Collection(array_map(
             function ($key, $values) {
