@@ -21,7 +21,7 @@ class _rotator {
 
     start() {
         if (!this.running) {
-            (async () => await this.timer(random(1, 5) * 1000))();
+            (async () => await this.timer(random(30, 50) * 1000))();
         }
         return true;
     }
