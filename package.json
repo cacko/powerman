@@ -21,6 +21,7 @@
         "build": "encore production --progress"
     },
     "dependencies": {
+        "air-datepicker": "^3.3.5",
         "lodash-es": "^4.17.21"
     }
 }

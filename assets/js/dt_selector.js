@@ -1,4 +1,28 @@
 import template from "lodash-es/template";
+import AirDatepicker from 'air-datepicker';
+import 'air-datepicker/air-datepicker.css';
+
+
+class _form {
+
+    constructor(target) {
+        this.$target = target;
+        this.#init();
+    }
+
+    get when() {
+        return this.$target.querySelector("[name='when']:checked")?.value;
+    }
+
+    #init() {
+        console.log(this.when);
+    }
+
+    #startListeners() {
+
+    }
+
+}
 
 class _overlay {
 
@@ -6,11 +30,15 @@ class _overlay {
         this.templateVars = templateVars;
         this.$template = document.querySelector("#dt-selector");
         this.$overlay = this.#init()
+        this.$form = new _form(this.$overlay.querySelector("form"));
     }
 
     show() {
         const $container = this.$template.closest("div.container.root");
         $container.append(this.$overlay);
+
+        new AirDatepicker('#dt');
+
         this.#startListeners();
     }
 
@@ -35,6 +63,7 @@ class _overlay {
     }
 
     #startListeners() {
+
         this.$overlay
             .querySelectorAll(".destroy")
             .forEach((el) => el.addEventListener("click", () => this.#destroy()));
