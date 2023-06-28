@@ -1,6 +1,6 @@
 import template from "lodash-es/template";
 import AirDatepicker from 'air-datepicker';
-import '@air-datepicker/air-datepicker.css';
+import 'air-datepicker/air-datepicker.css';
 
 
 class _form {
