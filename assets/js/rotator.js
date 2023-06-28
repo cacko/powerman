@@ -3,8 +3,8 @@ import shuffle from "lodash-es/shuffle";
 
 class _rotator {
 
-    static OUT_ANIMATIONS = ['animate__bounceOut', 'animate__zoomOut', 'animate__fadeOut'];
-    static IN_ANIMATIONS = ['animate__bounceIn', 'animate__zoomIn', 'animate__zoomIn'];
+    static OUT_ANIMATIONS = ['animate__fadeOut'];
+    static IN_ANIMATIONS = ['animate__fadeIn'];
 
     constructor(el) {
         this.el = el;
