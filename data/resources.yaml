@@ -101,3 +101,7 @@ user:
   oliver:
     - sys001
     - dev104
+  rashed.ahmed:
+    - dev031
+    - pm0001
+    - ops-019
