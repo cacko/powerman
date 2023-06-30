@@ -35,3 +35,12 @@
   }
 
 
+  :root[theme=dark] i.theme-switch::before {
+      content: "\e518";
+  }
+
+  :root[theme=light] i.theme-switch::before {
+      content: "\e51c";
+  }
+
+

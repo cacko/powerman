@@ -7,20 +7,34 @@ class _form {
 
     constructor(target) {
         this.$target = target;
-        this.#init();
+        this.init();
     }
 
-    get when() {
-        return this.$target.querySelector("[name='when']:checked")?.value;
-    }
-
-    #init() {
-        console.log(this.when);
+    init() {
+        this.#onWhen();
+        this.#startListeners();
     }
 
     #startListeners() {
-
+        this.$target
+            .querySelectorAll("[name='when']")
+            .forEach((el) => el.addEventListener('click', () => this.#onWhen()));
     }
+
+    #onWhen() {
+        const formData = new FormData(this.$target);
+        this.$target.querySelectorAll("[data-dependant]").forEach((el) => {
+            const data = el.dataset.dependant;
+            const depends_name = data.split("_", 1)[0];
+            const depends_value = data.split("_", 2)[1];
+            const readonly = formData.get(depends_name) !== depends_value;
+            el.setAttribute('aria-readonly', `${readonly}`);
+            el.querySelectorAll("input")
+                .forEach((el) => readonly ? el.setAttribute("disabled", 'disabled') : el.removeAttribute('disabled'));
+        });
+    }
+
+
 
 }
 
@@ -31,17 +45,7 @@ class _overlay {
         this.$template = document.querySelector("#dt-selector");
         this.$overlay = this.#init()
         this.$form = new _form(this.$overlay.querySelector("form"));
-    }
-
-    show() {
-        const $container = this.$template.closest("div.container.root");
-        $container.append(this.$overlay);
-
-        new AirDatepicker('#dt');
-        new AirDatepicker('#tm', {    timepicker: true,});
-
-
-        this.#startListeners();
+        this.$form.init();
     }
 
     #init() {
@@ -71,8 +75,16 @@ class _overlay {
             .forEach((el) => el.addEventListener("click", () => this.#destroy()));
     }
 
+
     #destroy() {
         this.$overlay.remove();
+    }
+
+    show() {
+        const $container = this.$template.closest("div.container.root");
+        $container.append(this.$overlay);
+
+        this.#startListeners();
     }
 
 }
@@ -89,7 +101,6 @@ class _dt_selector {
     }
 
     #onClick(ev) {
-        console.log(ev);
         const evTarget = ev.currentTarget;
         const templateVars = evTarget.dataset;
         const overlay = new _overlay(templateVars);

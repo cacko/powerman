@@ -13,33 +13,6 @@
                 </div>
             {% endif %}
         </div>
-        <template id="dt-selector">
-            <div class="destroy"></div>
-            <div class="outside">
-                <form data-template="/state/<%= action %>/<%= id %>" data-template_dst="action" method="post">
-                    <div class="inside">
-                        <h1 data-template="<%= action %>"></h1>
-                        <div class="form-group">
-                            <label for="when_now">Now</label>
-                            <input name="radio" type="radio" id="when_now" value="now" checked>
-                            <label for="when_later">Scheduled</label>
-                            <input name="radio" type="radio" id="when_later" value="later">
-                        </div>
-                        <div class="form-group" data-dependant="when_later" aria-readonly="true">
-                            <label for="dt" data-template="<%= action %> at"></label>
-                            <input id="dt" min="" name="dt" type="text">
-                        </div>
-                        <div class="form-group"  data-dependant="when_later" aria-readonly="true">
-                            <label for="tm" data-template="<%= action %> at"></label>
-                            <input id="tm" min="" name="dt" type="text">
-                        </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary" type="submit" data-template="<%= action %>"></button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="destroy"></div>
-        </template>
+        {% include('components/schdule.html.twig') %}
     {% endif %}
 {% endblock %}

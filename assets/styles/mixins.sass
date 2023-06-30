@@ -3,3 +3,6 @@
   background: -moz-linear-gradient($direction, $list)
   background: -o-linear-gradient($direction, $list)
   background: linear-gradient($direction, $list)
+
+@function themeVar($var-name, $var-mode)
+  @return var(--md-sys-color#{$var-name}-#{$var-mode})

@@ -6,6 +6,7 @@ use App\Security\GoogleAuthenticator;
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -21,11 +22,14 @@ class LoginController extends AbstractController
     #[Route('/login', name: 'login_form')]
     public function index(): Response
     {
+        if ($this->getUser()) {
+            return $this->redirectToRoute('app_homepage');
+        }
         return $this->render('login/index.html.twig', []);
     }
 
     #[Route('/login/google', name: 'connect_google')]
-    public function connectAction(ClientRegistry $clientRegistry)
+    public function connectAction(ClientRegistry $clientRegistry): RedirectResponse
     {
         return $clientRegistry
             ->getClient('google_main')
@@ -33,7 +37,7 @@ class LoginController extends AbstractController
     }
 
     #[Route('/login/google/check', name: 'connect_google_check')]
-    public function connectCheckAction(Request $request)
+    public function connectCheckAction(Request $request): RedirectResponse|JsonResponse
     {
         if (!$this->getUser()) {
             return new JsonResponse(array('status' => false, 'message' => "User not found!"));
@@ -43,6 +47,9 @@ class LoginController extends AbstractController
 
     }
 
+    /**
+     * @throws \Exception
+     */
     #[Route('/logout', name: 'app_logout')]
     public function logout(): never
     {

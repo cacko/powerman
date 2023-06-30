@@ -1,15 +1,15 @@
 :root {
-  --md-source: #003363;
+  --md-source: #1f5fa6;
   /* primary */
   --md-ref-palette-primary0: #000000;
-  --md-ref-palette-primary10: #001c3a;
+  --md-ref-palette-primary10: #001c3b;
   --md-ref-palette-primary20: #00315f;
   --md-ref-palette-primary25: #003c72;
   --md-ref-palette-primary30: #004786;
   --md-ref-palette-primary35: #065399;
   --md-ref-palette-primary40: #1f5fa6;
-  --md-ref-palette-primary50: #4078c1;
-  --md-ref-palette-primary60: #5c92dc;
+  --md-ref-palette-primary50: #3f78c1;
+  --md-ref-palette-primary60: #5c92dd;
   --md-ref-palette-primary70: #78adf9;
   --md-ref-palette-primary80: #a6c8ff;
   --md-ref-palette-primary90: #d4e3ff;
@@ -19,20 +19,20 @@
   --md-ref-palette-primary100: #ffffff;
   /* secondary */
   --md-ref-palette-secondary0: #000000;
-  --md-ref-palette-secondary10: #121c2b;
-  --md-ref-palette-secondary20: #273141;
-  --md-ref-palette-secondary25: #323c4c;
-  --md-ref-palette-secondary30: #3d4758;
-  --md-ref-palette-secondary35: #495364;
-  --md-ref-palette-secondary40: #555f71;
-  --md-ref-palette-secondary50: #6d788a;
-  --md-ref-palette-secondary60: #8791a5;
-  --md-ref-palette-secondary70: #a1acc0;
-  --md-ref-palette-secondary80: #bcc7dc;
-  --md-ref-palette-secondary90: #d8e3f8;
-  --md-ref-palette-secondary95: #ebf1ff;
-  --md-ref-palette-secondary98: #f9f9ff;
-  --md-ref-palette-secondary99: #fdfcff;
+  --md-ref-palette-secondary10: #002106;
+  --md-ref-palette-secondary20: #00390f;
+  --md-ref-palette-secondary25: #004614;
+  --md-ref-palette-secondary30: #005319;
+  --md-ref-palette-secondary35: #00601f;
+  --md-ref-palette-secondary40: #146d29;
+  --md-ref-palette-secondary50: #33873f;
+  --md-ref-palette-secondary60: #4fa256;
+  --md-ref-palette-secondary70: #69bd6f;
+  --md-ref-palette-secondary80: #84da87;
+  --md-ref-palette-secondary90: #a0f7a1;
+  --md-ref-palette-secondary95: #c7ffc3;
+  --md-ref-palette-secondary98: #ebffe6;
+  --md-ref-palette-secondary99: #f6fff0;
   --md-ref-palette-secondary100: #ffffff;
   /* tertiary */
   --md-ref-palette-tertiary0: #000000;
@@ -71,7 +71,7 @@
   /* neutral-variant */
   --md-ref-palette-neutral-variant0: #000000;
   --md-ref-palette-neutral-variant10: #181c22;
-  --md-ref-palette-neutral-variant20: #2d3138;
+  --md-ref-palette-neutral-variant20: #2d3038;
   --md-ref-palette-neutral-variant25: #383b43;
   --md-ref-palette-neutral-variant30: #43474e;
   --md-ref-palette-neutral-variant35: #4f525a;
@@ -106,11 +106,11 @@
   --md-sys-color-primary-light: #1f5fa6;
   --md-sys-color-on-primary-light: #ffffff;
   --md-sys-color-primary-container-light: #d4e3ff;
-  --md-sys-color-on-primary-container-light: #001c3a;
-  --md-sys-color-secondary-light: #555f71;
+  --md-sys-color-on-primary-container-light: #001c3b;
+  --md-sys-color-secondary-light: #146d29;
   --md-sys-color-on-secondary-light: #ffffff;
-  --md-sys-color-secondary-container-light: #d8e3f8;
-  --md-sys-color-on-secondary-container-light: #121c2b;
+  --md-sys-color-secondary-container-light: #a0f7a1;
+  --md-sys-color-on-secondary-container-light: #002106;
   --md-sys-color-tertiary-light: #055cba;
   --md-sys-color-on-tertiary-light: #ffffff;
   --md-sys-color-tertiary-container-light: #d7e2ff;
@@ -138,10 +138,10 @@
   --md-sys-color-on-primary-dark: #00315f;
   --md-sys-color-primary-container-dark: #004786;
   --md-sys-color-on-primary-container-dark: #d4e3ff;
-  --md-sys-color-secondary-dark: #bcc7dc;
-  --md-sys-color-on-secondary-dark: #273141;
-  --md-sys-color-secondary-container-dark: #3d4758;
-  --md-sys-color-on-secondary-container-dark: #d8e3f8;
+  --md-sys-color-secondary-dark: #84da87;
+  --md-sys-color-on-secondary-dark: #00390f;
+  --md-sys-color-secondary-container-dark: #005319;
+  --md-sys-color-on-secondary-container-dark: #a0f7a1;
   --md-sys-color-tertiary-dark: #abc7ff;
   --md-sys-color-on-tertiary-dark: #002f66;
   --md-sys-color-tertiary-container-dark: #00458f;
