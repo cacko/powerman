@@ -1,8 +1,11 @@
-@mixin gradient($direction, $list)
+@mixin gradient($direction, $color, $base: 1)
+  $list: adjust-color($color, $alpha: -1) 0%, adjust-color($color, $alpha: -0.2*$base) 25%, adjust-color($color, $alpha: -0.1*$base) 50%, adjust-color($color, $alpha: -0.1*$base) 66%, adjust-color($color, $alpha: -0.2*$base) 75%, adjust-color($color, $alpha: -1) 100%
   background: -webkit-linear-gradient($direction, $list)
   background: -moz-linear-gradient($direction, $list)
   background: -o-linear-gradient($direction, $list)
   background: linear-gradient($direction, $list)
 
-@function themeVar($var-name, $var-mode)
-  @return var(--md-sys-color#{$var-name}-#{$var-mode})
+@function themeVar($var-name)
+  $xyz : var(--#{$var-name})
+  @debug "divider offset: #{$xyz}"
+  @return $xyz

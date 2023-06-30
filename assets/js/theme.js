@@ -3,6 +3,8 @@ class _theme {
     #triggerElement;
     #isCustom;
     #currentTheme;
+    #onThemeToggleHandler;
+    #onPreferChangeHandler;
 
     constructor(el) {
         this.el = el;
@@ -37,15 +39,21 @@ class _theme {
 
 
     #startListeners() {
-        window.matchMedia('(prefers-color-scheme: dark)')
-            .addEventListener('change', event => (ev) => this.#onPreferChange(ev));
-        this.#triggerElement?.addEventListener("click", (ev) => this.#onThemeToggle(ev));
+        if (!this.#onPreferChangeHandler) {
+            this.#onPreferChangeHandler = (ev) => this.#onPreferChangeHandler(ev);
+            window.matchMedia('(prefers-color-scheme: dark)')
+                .addEventListener('change', event => (ev) => this.#onPreferChangeHandler(ev));
+        }
+        if (!this.#onThemeToggleHandler) {
+            this.#onThemeToggleHandler = (ev) => this.#onThemeToggle(ev);
+            this.#triggerElement?.addEventListener("click", this.#onThemeToggleHandler, {passive: true});
+        }
     }
 
     #stopListeners() {
-        window.matchMedia('(prefers-color-scheme: dark)')
-            .removeEventListener('change', event => (ev) => this.#onPreferChange(ev));
-        this.#triggerElement?.removeEventListener("click", (ev) => this.#onThemeToggle(ev));
+        // window.matchMedia('(prefers-color-scheme: dark)')
+        //     .removeEventListener('change', this.#onPreferChangeHandler);
+        // this.#triggerElement?.removeEventListener("click", this.#onThemeToggleHandler);
     }
 
     #onPreferChange(ev) {
@@ -56,19 +64,26 @@ class _theme {
     }
 
     #onThemeToggle(ev) {
+        console.log("oon them,e toggle");
         const theme = this.#currentTheme === "dark" ? "light" : "dark";
         this.setTheme(theme);
         this.#storeScheme(theme);
     }
 
     setTheme(theme) {
-        this.target.setAttribute("theme", theme);
+
+        this.root.setAttribute("theme", theme);
+        this.body.setAttribute("theme", theme);
         this.#currentTheme = theme;
     }
 
 
-    get target() {
+    get root() {
         return document.querySelector("html");
+    }
+
+    get body() {
+        return document.querySelector("body");
     }
 
 

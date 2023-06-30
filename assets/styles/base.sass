@@ -1,7 +1,8 @@
+@use "mixins"
 @import "theme"
 @import "root"
 
-body 
+body
   display: flex
   flex-direction: column
   height: 100vh
@@ -69,16 +70,24 @@ body
 
 
 
+body
+  .ws-background
+    position: absolute
+    width: 100%
+    height: 100%
+    background-size: cover
+    align-items: center
+    justify-content: center
+    background-repeat: no-repeat
+    display: flex
+    z-index: -1
+    background-color: color-mix(in srgb, var(--background-color) 50%, transparent)
 
-.ws-background
-  position: absolute
-  width: 100%
-  height: 100%
-  background-size: cover
-  align-items: center
-  justify-content: center
-  background-repeat: no-repeat
-  background-blend-mode: darken
-  background-color: rgba(0, 0, 0, 0.6)
-  display: flex
-  z-index: -1
+  &[theme=dark]
+    .ws-background
+      background-blend-mode: darken
+
+  &[theme=light]
+    .ws-background
+      background-blend-mode: lighten
+

@@ -21,6 +21,7 @@ class _rotator {
 
     start() {
         if (!this.running) {
+            this.running = true;
             (async () => await this.timer(random(30, 50) * 1000))();
         }
         return true;
@@ -60,6 +61,8 @@ class _rotator {
         await this.#fadeOut();
         this.el.style.backgroundImage = `url('${src}')`;
         await this.#fadeIn();
+        console.log("changed");
+        this.running = false;
         return this.start();
     };
 };

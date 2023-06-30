@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US" theme="dark">
+<html lang="en-US" theme="">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}Wake-On-LAN!{% endblock %}</title>
@@ -24,7 +24,7 @@
         {{ encore_entry_script_tags('app') }}
     {% endblock %}
 </head>
-<body class="mdc-typography">
+<body class="mdc-typography" theme="">
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
     {% include 'navbar.html.twig' %}
 {% endif %}

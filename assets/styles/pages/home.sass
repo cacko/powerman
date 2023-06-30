@@ -1,5 +1,4 @@
 @use '../mixins'
-$overlay-list: rgba(116, 119, 127, 0) 0%, rgba(116, 119, 127, 0.4) 25%, rgba(116, 119, 127, 0.5) 50%, rgba(116, 119, 127, 0.6) 66%, rgba(116, 119, 127, 0.4) 75%, rgba(116, 119, 127, 0) 100%
 
 .ws-content
   display: flex
@@ -49,7 +48,7 @@ $overlay-list: rgba(116, 119, 127, 0) 0%, rgba(116, 119, 127, 0.4) 25%, rgba(116
       content: "\e90e"
 
   table
-    background-color: rgba(255, 255, 255, 0.1)
+    background-color: color-mix(in srgb, var(--background-color) 50%, transparent)
     font-variant: small-caps
     text-transform: lowercase
 
@@ -119,7 +118,7 @@ $overlay-list: rgba(116, 119, 127, 0) 0%, rgba(116, 119, 127, 0.4) 25%, rgba(116
   position: fixed
   height: 100%
   width: 100%
-  background-color: rgba(0, 0, 0, 0.8)
+  background-color: rgba(0, 0, 0, 0.5)
   display: flex
   top: 0
   left: 0
@@ -137,9 +136,21 @@ $overlay-list: rgba(116, 119, 127, 0) 0%, rgba(116, 119, 127, 0.4) 25%, rgba(116
     width: 100%
     justify-content: center
     align-items: center
-    @include mixins.gradient(left, $overlay-list)
 
     div.inside
       display: flex
       flex-direction: column
       row-gap: 0.5em
+
+body
+  &[theme=dark]
+    .overlay
+      div.outside
+        @include mixins.gradient(left, #004786)
+
+
+  &[theme=light]
+    .overlay
+
+      div.outside
+        @include mixins.gradient(left, #D4E3FF)
