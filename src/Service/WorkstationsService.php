@@ -6,6 +6,7 @@ use App\Entity\GroupEntity;
 use App\Entity\UserEntity;
 use App\Entity\WorkstationEntity;
 use App\Security\User;
+use Cmixin\BusinessDay;
 use Illuminate\Support\Collection;
 use Psr\Log\LoggerInterface;
 use Symfony\Component\Yaml\Yaml;
@@ -23,12 +24,13 @@ class WorkstationsService
     protected Collection $users;
 
     public function __construct(
-        protected string          $resources,
+        protected array          $resources,
         protected string          $states,
         protected LoggerInterface $logger
     )
     {
-        $data = Yaml::parseFile($this->resources);
+        BusinessDay::enable('Carbon\Carbon', 'gb-engwales');
+        $data = $this->loadResources($this->resources);
         $this->workstations = new Collection([]);
         $this->groups = new Collection(array_map(
             function ($key, $values) {
@@ -59,6 +61,20 @@ class WorkstationsService
             array_keys($data['user']),
             $data['user']
         ));
+    }
+
+    protected function loadResources(array $resources)
+    {
+        return  array_reduce($resources, function($data, $res) {
+            $resData = [];
+            if (is_dir($res)) {
+                $resData = $this->loadResources(glob(sprintf("%s/{,*/,*/*/,*/*/*/}*.yaml", $res),GLOB_BRACE));
+            }
+            elseif (is_file($res)) {
+                $resData = Yaml::parseFile($res);
+            }
+            return array_merge_recursive($data, $resData);
+        }, []);
     }
 
     public function getWorkstations(?User $user): array

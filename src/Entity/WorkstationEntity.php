@@ -33,6 +33,8 @@ class WorkstationEntity extends AbstractAppEntity
         ];
 
         if (!file_exists($this->location)) {
+            dump($config);
+
             return $this->writeState($config);
         }
         $data = Yaml::parseFile($this->location);

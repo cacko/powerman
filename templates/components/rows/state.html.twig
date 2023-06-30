@@ -3,8 +3,12 @@
         <div class="row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}"">
             {% if state.trigger > 0 %}
                 <i class="material-icons-outlined">battery_saver</i>
-                <span class="label">Suspended until</span>
+                <span class="label">Until</span>
+                {% if date(state.trigger).format('y-m-d') != date().format('y-m-d') %}
+                    <span class="trigger">{{ state.trigger|format_datetime(pattern='E.MMMdd HH:mm', locale='en', timezone=tz) }}</span>
+                {% else %}
                 <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
+                {% endif %}
             {% else %}
                 <i class="material-icons-outlined animate__animated animate__pulse animate__infinite error">bolt</i>
                 <span>Active</span>

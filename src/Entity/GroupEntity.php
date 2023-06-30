@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
 
@@ -37,9 +38,11 @@ class GroupEntity extends AbstractAppEntity
             $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
             $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
             if ($now > $suspendAt) {
-                return (new DateTime("tomorrow {$this->resumeAt}", $tz))->getTimestamp();
+                return Carbon::nextBusinessDay()
+                    ->setTimeFromTimeString($this->resumeAt)
+                    ->setTimezone($tz)->getTimestamp();
             }
-            if ($resumeAt > $now) {
+            if ($resumeAt > $now && $now < $suspendAt) {
                 return $resumeAt->getTimestamp();
             }
             return 0;
@@ -57,12 +60,13 @@ class GroupEntity extends AbstractAppEntity
             $now = new DateTime('now', $tz);
             if ($trigger < 0) {
                 $suspendAt = new DateTime(sprintf("@%d", abs($trigger)), $tz);
-                $resumeAt = new DateTime("tomorrow {$this->resumeAt}", $tz);
+                $resumeAt = Carbon::nextBusinessDay()
+                    ->setTimeFromTimeString($this->resumeAt)->setTimezone($tz);
                 return $now > $suspendAt ? $resumeAt->getTimestamp() : $trigger;
             }
             if ($trigger > 0) {
                 $resumeAt = new DateTime("@{$trigger}", $tz);
-                return $now < $resumeAt ? 0 : $trigger;
+                return $now < $resumeAt ? $trigger : 0;
             }
 
             $resumeAt = new DateTime("today {$this->resumeAt}", $tz);
