@@ -1,0 +1,30 @@
+.overlay {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  div.destroy {
+    flex-grow: 1;
+    width: 100%;
+  }
+  div.outside {
+    padding: 1em;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    div.inside {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.5em;
+    }
+  }
+}

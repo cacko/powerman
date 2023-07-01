@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <a class="navbar-brand uses-animator" href="#" href="/"
+       data-animations="animate__bounce,animate__rubberBand,animate__rubberBand,animate__jello,animate__flip,animate__rotateIn,animate__hinge,animate__jackInTheBox"
+       data-delay="5" data-use-children="1">
+        {% apply spaceless %}
+            <div class="animator-false animate__animated animate__pulse animate__infinite">
+                <i class="text-danger material-icons-outlined">electric_bolt</i>
+            </div>
+            <div class="abbr letter">W</div>
+            <div class="letter">A</div>
+            <div class="letter">K</div>
+            <div class="word_end letter">E</div>
+            <div class="abbr letter">O</div>
+            <div class="letter word_end">N</div>
+            <div class="abbr letter">L</div>
+            <div class="letter">A</div>
+            <div class="letter">N</div>
+            <div class="animator-false animate__animated animate__flip animate__infinite animate__slow">
+                <i class="text-danger material-icons-outlined">currency_pound</i>
+            </div>
+        {% endapply %}
+    </a>
+    <div class="navbar-info">
+        <div class="user-info">
+            <div class="menu-item-segment">
+                {% include 'components/clock.html.twig' %}
+                <i class="material-icons theme-switch"></i>
+            </div>
+            <div class="menu-item-segment">
+                <div class="username">
+                    {{ app.user.name }}
+                </div>
+                <div class="avatar" style="background-image: url({{ app.user.avatar }})">
+                    <a href="{{ path('app_logout') }}">
+                        <img src="{{ app.user.avatar }}" alt="{{ app.user.name }}">
+                    </a>
+                </div>
+                <meta property="position" content="1">
+            </div>
+        </div>
+    </div>
+</nav>

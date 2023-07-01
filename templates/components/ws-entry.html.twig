@@ -1,0 +1,33 @@
+<div class="ws-entry bg-body-tertiary bg-opacity-50 rounded container">
+    <div><h1>Your Machine</h1></div>
+    <div class="row row-cols-2 g-3 rows">
+        <div class="label col">
+            <strong class="machine">Machine</strong>
+        </div>
+        <div class="value col">
+            <div>{{ workstation.hostname }}</div>
+        </div>
+        <div class="label col">
+            <strong class="group">Group</strong>
+        </div>
+        <div class="value col">
+            <div>{{ workstation.group.label }}</div>
+        </div>
+        <div class="label col">
+            <strong class="state">State</strong>
+        </div>
+        <div class="value col">
+            <div>
+                {{ include('components/rows/state.html.twig', {state: workstation.state}) }}
+            </div>
+        </div>
+        <div class="label col">
+            <strong class="state">Action</strong>
+        </div>
+        <div class="value col">
+            {{ include('components/rows/action.html.twig', {state: workstation.state, hostname: workstation.hostname}) }}
+        </div>
+    </div>
+
+
+</div>

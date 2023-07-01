@@ -1,0 +1,27 @@
+@mixin gradient-hero($direction, $color, $base: 1) {
+  $list: ();
+  $breaks: -1 0%, -0.2 25%,  -0.1 50%, -0.1 66%,  -0.2 75%,  -1 100%;
+  @each $weight, $break in $breaks {
+    $list: append($list, adjust-color($color, $alpha: $weight * $base) $break,  $separator: comma);
+  }
+  background-image: linear-gradient(to $direction, $list);
+}
+
+
+@mixin gradient-row($color, $base: 1) {
+  $list: ();
+  $breaks: 0 0%, -0.2 25%,  -0.1 50%, -0.1 66%,  -0.2 75%,  0 100%;
+  @each $weight, $break in $breaks {
+    $list: append($list, adjust-color($color, $alpha: $weight * $base) $break,  $separator: comma);
+  }
+  background-image: linear-gradient(to left, $list);
+}
+
+@mixin gradient-nav($color) {
+  $list: ();
+  $breaks: 0.9 0%, 0.85 10%, 0.5 30%, 0.3 70%, 0 100%;
+  @each $opa, $break in $breaks {
+    $list: append($list, change-color($color, $alpha: $opa) $break,  $separator: comma);
+  }
+  background-image: linear-gradient(to bottom, $list);
+}

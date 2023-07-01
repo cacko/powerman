@@ -1,0 +1,70 @@
+@import "../colors";
+@import "../mixins/breakpoints";
+@import "../mixins/gradient";
+
+$color-mode-type: data;
+
+
+.navbar {
+  @include gradient-nav($black);
+  display: flex;
+  padding: 1rem 2rem;
+  padding-bottom: 4rem;
+  justify-content: space-between;
+  //@include color-mode(dark) {
+  //  @include gradient-header($body-tertiary-bg-dark);
+  //}
+
+
+  .navbar-info {
+    .menu-item-segment {
+      display: flex;
+      align-items: center;
+      column-gap: 0.3em;
+      @include media-breakpoint-down(md) {
+        &:first-of-type {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+    .user-info {
+      display: flex;
+      align-items: center;
+      column-gap: 0.4em;
+      color: var(--color-text-on-primary);
+      font-size: 2rem;
+
+      .username {
+        font-variant: small-caps;
+        text-transform: lowercase;
+      }
+
+      .avatar {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: cover;
+        width: 2em;
+        height: 2em;
+        border-radius: 50%;
+        border: solid 0.1em map-get($theme-colors, secondary);
+
+        img {
+          opacity: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      @include media-breakpoint-down(md) {
+        justify-content: space-between;
+        .username {
+          display: none;
+        }
+      }
+
+    }
+  }
+
+
+}
+

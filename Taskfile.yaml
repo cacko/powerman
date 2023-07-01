@@ -1,0 +1,85 @@
+version: "3"
+
+vars:
+  CONTAINER_PHP: costa
+  PROJECT: acpi
+
+
+tasks:
+
+  start:
+    desc: Uo the irons
+
+    deps:
+      - task: yarn
+        vars:
+          CLI_ARGS: dev-server
+      - task: server
+        vars:
+          CLI_ARGS: start
+
+    cmds:
+      - echo "done"
+
+
+  yarn:
+    desc: run yar cmd
+    cmds:
+      - yarn {{.CLI_ARGS}}
+
+  server:
+    desc: run symfony server
+    cmds:
+      - symfony 'server:'{{.CLI_ARGS}}
+
+  shell:
+    desc: hax0r
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
+
+  nuke:
+    cmds:
+      - docker-compose rm -v -f
+      - docker image prune -a -f
+      - docker volume prune -f
+
+  console:
+    desc: run composer
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} bin/console {{.CLI_ARGS}}
+
+  exec:
+    desc: hax0r
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} {{.CLI_ARGS}}
+
+  push:
+    desc: commit and pushes current changes
+    cmds:
+      - git add .  || true
+      - git commit -am "$(curl -s https://commit.cacko.net/index.txt)" || true
+      - git push  || true
+
+  pull:
+    desc: pulls from git
+    cmds:
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};git reset --hard;git pull'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};direnv allow'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};composer install'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};yarn install'
+
+
+  deploy:
+    desc: clear cache and build
+    cmds:
+      - task: push
+      - task: pull
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};yarn build'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};APP_ENV=prod APP_DEBUG=0 php bin/console cache:clear'
+      - ssh $REMOTE_HOST 'source ~/.zshrc;cd /var/www/{{.PROJECT}};APP_ENV=prod APP_DEBUG=0 php bin/console cache:warmup'
+
+  build:
+    desc: install packages
+    cmds:
+      - composer install
+      - yarn install

@@ -1,0 +1,38 @@
+@import "colors"
+
+body 
+  font-family: Share Tech Mono, monospace, serif !important
+  background-color: $body-bg
+  display: flex
+  flex-direction: column
+  height: 100vh
+  width: 100vw
+  overflow: hidden
+  padding: 0
+  margin: 0
+
+  .toggling 
+    transition: all 1s ease-in-out
+  
+
+  .hidden 
+    opacity: 0
+  
+
+  hr 
+    margin: 0.5em
+    width: 100%
+  
+
+  h1 
+    font-variant: small-caps
+    text-transform: lowercase
+    font-weight: bold
+    text-align: center
+  
+
+  [aria-readonly="true"] 
+    pointer-events: none
+    filter: grayscale(90%)
+    opacity: 30%
+  

@@ -1,0 +1,19 @@
+@import "../mixins/breakpoints";
+
+.tf-logo {
+  height: auto;
+  width: 50vw;
+  max-width: 500px;
+  position: relative;
+
+  svg {
+    height: 100%;
+  }
+
+}
+
+@include media-breakpoint-down(md) {
+  .tf-logo {
+    width: 100%;
+  }
+}

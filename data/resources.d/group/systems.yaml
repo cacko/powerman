@@ -1,0 +1,8 @@
+group:
+  systems:
+    label: Systems
+    suspendAt: 19:00
+    resumeAt: 07:00
+    sleepInterval: 60
+    hostnames:
+      - sys001

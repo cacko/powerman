@@ -1,0 +1,32 @@
+@import "../colors";
+
+strong {
+  font-variant: small-caps;
+  text-transform: lowercase;
+  color: map-get($theme-colors, secondary);
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: right;
+  justify-content: end;
+  column-gap: 0.2em;
+
+  &::before {
+    font-family: 'Material Icons Outlined', monospace;
+  }
+  &.machine::before {
+    content: "\e30a";
+  }
+  &.group::before {
+    content: "\f233";
+  }
+  &.state::before {
+    content: "\e63c";
+  }
+  &.action::before {
+    content: "\e90e";
+  }
+  &.status::before {
+    content: "\f066";
+  }
+}

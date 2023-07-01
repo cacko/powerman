@@ -1,0 +1,13 @@
+@import "../colors";
+@import "../mixins/gradient";
+
+.stripe-line {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2 em;
+  padding: 2em;
+  width: 100%;
+  @include gradient-hero(left, $gray-900);
+}

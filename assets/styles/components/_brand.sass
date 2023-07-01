@@ -1,0 +1,25 @@
+@import "../mixins/breakpoints"
+@import "../colors"
+
+.navbar-brand
+  font-family: Monoton, serif
+  font-size: 2rem
+  font-stretch: expanded
+  justify-content: center
+  align-items: center
+  text-transform: uppercase
+  display: flex
+
+  div.letter
+    color: map-get($colors, indigo)
+
+  .word_end
+    padding-right: 1rem
+  i
+    line-height: inherit
+  //
+  //
+  //@include media-breakpoint-down(md)
+  //  .letter
+  //    &:not(.abbr)
+  //      display: none

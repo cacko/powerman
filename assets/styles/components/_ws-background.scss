@@ -1,0 +1,26 @@
+@import "../colors";
+
+$color-mode-type: data;
+
+.ws-background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  background-repeat: no-repeat;
+  display: flex;
+  z-index: -1;
+  background-color: color-mix(in srgb, #000 30%, transparent);
+  background-blend-mode: darken;
+  filter: grayscale(0.7);
+}
+//@include color-mode(dark) {
+//  .ws-background {
+//    background-color: color-mix(in srgb, #000 30%, transparent);
+//    background-blend-mode: darken;
+//  }
+//}

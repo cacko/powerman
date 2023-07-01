@@ -1,0 +1,52 @@
+<div><h1>Machines</h1></div>
+<table class="ws-list">
+    <thead>
+    <tr>
+        <th scope="col">
+            <strong class="machine">Machine</strong>
+        </th>
+        <th scope="col">
+            <strong class="group">Group</strong>
+        </th>
+        <th scope="col">
+            <strong class="status">Status</strong>
+        </th>
+        <th scope="col">
+            <strong class="state">State</strong>
+        </th>
+        <th scope="col">
+            <strong class="state">Action</strong>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for workstation in workstations %}
+        <tr>
+            <td data-label="Machine">
+                <div class="col">
+                    {{ workstation.hostname }}
+                </div>
+            </td>
+            <td data-label="Group">
+                <div class="col">
+                    {{ workstation.group.label }}</div>
+            </td>
+            <td data-label="Status">
+                <div class="col">
+                    {{ include('components/rows/status.html.twig', {state: workstation.state}) }}
+                </div>
+            </td>
+            <td data-label="State">
+                <div class="col">
+                    {{ include('components/rows/state.html.twig', {state: workstation.state}) }}
+                </div>
+            </td>
+            <td data-label="Action">
+                <div class="col">
+                    {{ include('components/rows/action.html.twig', {state: workstation.state, hostname: workstation.hostname}) }}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

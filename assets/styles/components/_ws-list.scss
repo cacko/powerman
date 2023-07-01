@@ -1,0 +1,122 @@
+@import "../colors";
+@import "../mixins/gradient";
+
+$color-mode-type: data;
+
+table.ws-list {
+  font-variant: small-caps;
+  text-transform: lowercase;
+
+  th {
+    font-size: 1.5em;
+    @include gradient-row($black);
+  }
+
+  &.rounded {
+    th:first-of-type {
+      border-top-left-radius: 1rem !important
+    }
+
+    th:last-of-type {
+      border-top-right-radius: 1rem !important
+
+    }
+  }
+
+  td {
+    @include gradient-row($gray-700);
+
+    .column {
+      display: flex;
+      column-gap: 0.3em;
+      flex-direction: column;
+      align-items: flex-start;
+      color: $gray-100;
+
+      .value {
+        font-family: VT323, serif;
+      }
+
+
+    }
+
+    div.table-row {
+      display: flex;
+      flex-direction: row;
+      column-gap: 0.3em;
+      justify-content: center;
+      align-items: center;
+
+
+      &.sub {
+        font-size: 0.8em;
+      }
+    }
+
+    .label {
+      white-space: nowrap;
+    }
+
+    //button {
+    //  &[data-action="suspend"] {
+    //    @include button-outline-variant(map-get($theme-colors, danger));
+    //  }
+    //
+    //  &[data-action="resume"] {
+    //    @include button-outline-variant(map-get($theme-colors, success));
+    //  }
+    //}
+
+  }
+}
+
+//@include media-breakpoint-down(md) {
+//  .table {
+//    border: 1px solid transparent;
+//    box-shadow: none;
+//    font-size: 1.2em;
+//
+//    thead {
+//      display: none;
+//    }
+//
+//    tbody {
+//      tr {
+//        border-bottom: 45px solid transparent;
+//
+//        td:first-child {
+//          padding-left: 10px;
+//        }
+//
+//        td:before {
+//          content: attr(data-label);
+//          float: left;
+//          text-transform: uppercase;
+//          font-weight: bold;
+//        }
+//
+//        td {
+//          display: flex;
+//          align-items: center;
+//          text-align: right;
+//          padding: 5px 10px !important;
+//          box-shadow: 0 1px 1px rgba(0, 0, 0, .3);
+//
+//          .column {
+//            align-items: flex-end;
+//          }
+//
+//          button {
+//            &[data-action="suspend"] {
+//              @include button-variant(map-get($theme-colors, danger), tint-color(map-get($theme-colors, danger), 10%));
+//            }
+//
+//            &[data-action="resume"] {
+//              @include button-variant(map-get($theme-colors, success), tint-color(map-get($theme-colors, success), 10%));
+//            }
+//          }
+//        }
+//      }
+//    }
+//  }
+//}

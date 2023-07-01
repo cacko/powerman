@@ -1,0 +1,23 @@
+
+.content-login {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1rem;
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    button {
+      font-variant: small-caps;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .content-login {
+    width: 100%;
+    padding: 0;
+  }
+}
