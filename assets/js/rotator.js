@@ -10,12 +10,7 @@ class _rotator {
         this.el = el;
         this.running = false;
         this.images = Array.from(Array(7)).map((_, idx) => `/images/home/ws-background${idx}.webp`);
-        this.timer = (ms) => {
-            return new Promise((resolve) => {
-                setTimeout(() => resolve(this.setBackground()), ms);
-            });
-        };
-
+        this.timer = (ms) => new Promise((resolve) => setTimeout(() => resolve(this.setBackground()), ms));
         (async () => await this.setBackground())();
     }
 
@@ -61,7 +56,6 @@ class _rotator {
         await this.#fadeOut();
         this.el.style.backgroundImage = `url('${src}')`;
         await this.#fadeIn();
-        console.log("changed");
         this.running = false;
         return this.start();
     };

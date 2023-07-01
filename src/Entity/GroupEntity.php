@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use ArrayIterator;
 use Carbon\Carbon;
 use DateTime;
 use DateTimeZone;
+use Traversable;
 
 /**
  * @property-read string $id
@@ -29,6 +31,10 @@ class GroupEntity extends AbstractAppEntity
     {
     }
 
+    public function getIterator(): Traversable
+    {
+        return new ArrayIterator();
+    }
 
     public function getDefaultTrigger(): int
     {

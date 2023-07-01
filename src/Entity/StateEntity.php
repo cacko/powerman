@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Illuminate\Contracts\Support\Arrayable;
+
 /**
  * @property-read int $trigger
  * @property-read int $ack
@@ -16,4 +18,5 @@ class StateEntity extends AbstractAppEntity
     ) {
 
     }
+
 }

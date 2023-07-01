@@ -3,7 +3,7 @@ import {Rotator} from "./js/rotator.js";
 import {Animator} from "./js/animator";
 import {Theme} from "./js/theme.js";
 
-console.log = (data) => console.debug(data);
+console.log = (...data) => console.debug(...data);
 
 const onAway = () => Theme.stop() && Rotator.stop() && Animator.stop();
 const onActive = () => Theme.start('.theme-switch') && Rotator.start() && Animator.start();

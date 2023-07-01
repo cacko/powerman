@@ -17,7 +17,7 @@ class _form {
 
     #startListeners() {
         this.$target
-            .querySelectorAll("[name='when']")
+            .querySelectorAll("[name='state[when]']")
             .forEach((el) => el.addEventListener('click', () => this.#onWhen()));
     }
 
@@ -25,8 +25,7 @@ class _form {
         const formData = new FormData(this.$target);
         this.$target.querySelectorAll("[data-dependant]").forEach((el) => {
             const data = el.dataset.dependant;
-            const depends_name = data.split("_", 1)[0];
-            const depends_value = data.split("_", 2)[1];
+            const [depends_name, depends_value] = data.split("_", 2);
             const readonly = formData.get(depends_name) !== depends_value;
             el.setAttribute('aria-readonly', `${readonly}`);
             el.querySelectorAll("input")

@@ -6,17 +6,17 @@
                 <h1 data-template="<%= action %>"></h1>
                 <div class="form-group center">
                     <label for="when_now">Now</label>
-                    <input name="when" type="radio" id="when_now" value="now" checked>
+                    <input name="state[when]" type="radio" id="when_now" value="now" checked>
                     <label for="when_later">Scheduled</label>
-                    <input name="when" type="radio" id="when_later" value="later">
+                    <input name="state[when]" type="radio" id="when_later" value="later">
                 </div>
-                <div class="form-group" data-dependant="when_later" aria-readonly="true">
+                <div class="form-group" data-dependant="state[when]_later" aria-readonly="true">
                     <label for="dt">Date</label>
-                    <input id="dt" min="" name="dt" type="date">
+                    <input id="dt" min="{{ "now"|date("Y-m-d") }}" name="state[dt]" type="date" required>
                 </div>
-                <div class="form-group" data-dependant="when_later" aria-readonly="true">
+                <div class="form-group" data-dependant="state[when]_later" aria-readonly="true">
                     <label for="tm">Time</label>
-                    <input id="tm" min="" name="tm" type="time">
+                    <input id="tm" min="" name="state[tm]" type="time">
                 </div>
                 <div class="form-group submit">
                     <button class="btn btn-primary" type="submit" data-template="<%= action %>"></button>

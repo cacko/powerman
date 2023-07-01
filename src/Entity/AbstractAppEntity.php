@@ -33,6 +33,12 @@ abstract class AbstractAppEntity implements ArrayAccess
         return $this->offsetGet($name);
     }
 
-
+    protected static function cleanKeys(array $vars): array
+    {
+        return array_reduce(array_keys($vars), function($res, $k) use($vars) {
+            $res[trim($k, "\0*")] = $vars[$k];
+            return $res;
+        }, []);
+    }
 
 }

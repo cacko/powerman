@@ -87,6 +87,10 @@ class WorkstationsService
         return $entity ? $entity['workstations'] : [];
     }
 
+    /**
+     * @param string $hostname
+     * @return WorkstationEntity
+     */
     public function getWorkstation(string $hostname): WorkstationEntity
     {
         /** @var WorkstationEntity $entity */

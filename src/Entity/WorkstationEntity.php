@@ -49,8 +49,9 @@ class WorkstationEntity extends AbstractAppEntity
         return $state;
     }
 
-    protected function writeState(array $config): StateEntity
+    public function writeState(array $config): StateEntity
     {
+        $config = static::cleanKeys($config);
         $yaml = Yaml::dump($config);
         file_put_contents($this->location, $yaml);
         return new StateEntity(...$config);
