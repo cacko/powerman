@@ -229,8 +229,8 @@
   }
 
   50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: scale3d(1.35, 1.35, 1.35);
+    transform: scale3d(1.35, 1.35, 1.35);
   }
 
   to {
@@ -245,8 +245,8 @@
   }
 
   50% {
-    -webkit-transform: scale3d(1.05, 1.05, 1.05);
-    transform: scale3d(1.05, 1.05, 1.05);
+    -webkit-transform: scale3d(1.35, 1.35, 1.35);
+    transform: scale3d(1.35, 1.35, 1.35);
   }
 
   to {
