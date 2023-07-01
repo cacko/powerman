@@ -31,8 +31,6 @@ class WorkstationVoter extends Voter
     {
         $user = $this->security->getUser();
         $userWorkstations = $this->workstationsService->getWorkstations($user);
-        dump(array_map(fn(WorkstationEntity $ws) => $ws->hostname, $userWorkstations));
-
         return in_array($subject, array_map(fn(WorkstationEntity $ws) => $ws->hostname, $userWorkstations));
     }
 }
