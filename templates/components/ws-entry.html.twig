@@ -1,0 +1,31 @@
+<div><h1>Your Machine</h1></div>
+<div class="ws-grid">
+    <div class="label">
+        <strong class="machine">Machine</strong>
+    </div>
+    <div class="value">
+        <div>{{ workstation.hostname }}</div>
+    </div>
+
+    <div class="label">
+        <strong class="group">Group</strong>
+    </div>
+    <div class="value">
+        <div>{{ workstation.group.label }}</div>
+    </div>
+    <div class="label">
+        <strong class="state">State</strong>
+    </div>
+    <div class="value">
+        <div>
+            {{ include('components/rows/state.html.twig', {state: workstation.state}) }}
+        </div>
+    </div>
+    <div class="label">
+        <strong class="state">Action</strong>
+    </div>
+    <div class="value">
+            {{ include('components/rows/action.html.twig', {state: workstation.state}) }}
+    </div>
+</div>
+

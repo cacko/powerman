@@ -1,0 +1,62 @@
+group:
+  ops:
+    label: Ops Team
+    suspendAt: 19:00
+    resumeAt: 07:00
+    sleepInterval: 60
+    hostnames:
+      - ops007
+  bsm:
+    label: BSM Team
+    suspendAt: 18:00
+    resumeAt: 07:00
+    sleepInterval: 60
+    hostnames:
+      - ops-019
+      - ops-015
+      - ops-026
+      - ops-030
+      - ops-040
+      - ops-028
+      - ops-014
+      - ops-024
+  admin:
+    label: Admin Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 60
+    hostnames:
+      - adm001
+  qa:
+    label: QA Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - qa001
+      - qa002
+  tfpay:
+    label: tfPay Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - tfp001
+      - tfp002
+  sales:
+    label: Sales Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - sales001
+      - sales002
+  pm:
+    label: PM Team
+    suspendAt: 18:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - pm0001
+      - pm0002
+

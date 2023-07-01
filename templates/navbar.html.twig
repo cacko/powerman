@@ -1,0 +1,50 @@
+<div class="container navbar">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div class="logo terminal-prompt">
+                <a href="/" class="no-style uses-animator brand_title"
+                   data-animations="animate__bounce,animate__rubberBand,animate__rubberBand,animate__jello,animate__flip,animate__rotateIn,animate__hinge,animate__jackInTheBox"
+                   data-delay="5" data-use-children="1">
+                    {% apply spaceless %}
+                        <div class="animator-false animate__animated animate__pulse animate__infinite"><span class="error material-icons-outlined">electric_bolt</span>
+                        </div>
+                        <div>W</div>
+                        <div>A</div>
+                        <div>K</div>
+                        <div class="word_end">E</div>
+                        <div>O</div>
+                        <div class="word_end">N</div>
+                        <div>L</div>
+                        <div>A</div>
+                        <div>N</div>
+                        <div class="animator-false animate__animated animate__flip animate__infinite animate__slow">
+                            <i class="error material-icons-outlined">currency_pound</i>
+                        </div>
+                    {% endapply %}
+                </a>
+            </div>
+        </header>
+        <nav class="terminal-menu">
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                <li property="itemListElement" typeof="ListItem" class="user-info">
+                    <div class="menu-item-segment">
+                        {% include 'components/clock.html.twig' %}
+                        <i class="material-icons theme-switch"></i>
+                    </div>
+                    <div class="menu-item-segment">
+                        <div class="username">
+                            {{ app.user.name }}
+                        </div>
+                        <div class="avatar" style="background-image: url({{ app.user.avatar }})">
+                            <a href="{{ path('app_logout') }}">
+                                <img src="{{ app.user.avatar }}" alt="{{ app.user.name }}">
+                            </a>
+                        </div>
+                        <meta property="position" content="1">
+                    </div>
+
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

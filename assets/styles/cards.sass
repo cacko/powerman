@@ -1,0 +1,21 @@
+@use 'mixins'
+
+.terminal-card
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+  row-gap: 2em
+  padding: 2em
+  width: 100%
+
+body
+  &[theme=dark]
+    .terminal-card
+      @include mixins.gradient(left, #181c22)
+
+
+  &[theme=light]
+    .terminal-card
+      @include mixins.gradient(left, #001b3f)
+

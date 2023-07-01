@@ -1,0 +1,44 @@
+
+:root {
+    --global-font-size: 20px;
+    --global-line-height: 24px;
+    --global-space: 10px;
+    --font-stack: Share Tech Mono, monospace, serif;
+    --mono-font-stack: Share Tech Mono, monospace, serif;
+    --background-color: var(--md-sys-color-background);
+    --page-width: 60em;
+    --font-color: var(--md-sys-color-primary);
+    --invert-font-color: var(--md-sys-color-inverse-primary);
+    --secondary-color: var(--md-sys-color-secondary);
+    --tertiary-color: var(--md-sys-color-tertiary);
+    --primary-color: var(--md-sys-color-primary);
+    --error-color: var(--md-sys-color-error);
+    --progress-bar-background: var(--md-sys-color-surface);
+    --progress-bar-fill: var(--md-sys-color-on-surface);
+    --code-bg-color: var(--md-sys-color-surface-variant);
+    --input-style: solid;
+    --display-h1-decoration: none;
+    --header-background: var(--md-sys-color-surface);
+    --gradient-shadow: linear-gradient(
+            45deg,
+            #fb0094,
+            #0000ff,
+            #00ff00,
+            #ffff00,
+            #ff0000,
+            #fb0094,
+            #0000ff,
+            #00ff00,
+            #ffff00,
+            #ff0000
+    )
+}
+
+
+:root[theme=dark] i.theme-switch::before {
+    content: "\e518";
+}
+
+:root[theme=light] i.theme-switch::before {
+    content: "\e51c";
+}

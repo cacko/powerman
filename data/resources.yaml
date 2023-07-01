@@ -1,0 +1,8 @@
+group:
+  zombie:
+    label: Always On
+    suspendAt: 00:00
+    resumeAt: 00:00
+    sleepInterval: 120
+    hostnames:
+      - zmb001

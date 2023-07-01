@@ -1,0 +1,10 @@
+group:
+  dev:
+    label: Dev Team
+    suspendAt: 19:00
+    resumeAt: 08:00
+    sleepInterval: 120
+    hostnames:
+      - dev031
+      - dev012
+      - dev104

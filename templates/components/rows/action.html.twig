@@ -1,0 +1,13 @@
+{% apply spaceless %}
+    {% if state.trigger == 0 %}
+        <button class="btn btn-ghost no-border btn-primary dt_selector" data-id="{{ hostname }}" data-action="suspend">
+            <i class="material-icons-outlined">battery_saver</i>
+            <span>Suspend</span>
+        </button>
+    {% else %}
+        <button class="btn btn-ghost no-border btn-primary dt_selector" data-id="{{ hostname }}" data-action="resume">
+            <i class="material-icons-outlined">bolt</i>
+            <span>Resume</span>
+        </button>
+    {% endif %}
+{% endapply %}

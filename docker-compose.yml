@@ -1,0 +1,18 @@
+# Use postgres/example user/password credentials
+version: '3.3'
+
+services:
+  costa:
+    build:
+      context: Docker/
+      args:
+        - UID=${DOCKER_UID}
+        - GID=${DOCKER_GID}
+    ports:
+      - "8085:8085"
+    volumes:
+      - ./costa:/var/www/html/:delegated
+      - symfony_var:/var/www/html/costa/var
+
+volumes:
+  symfony_var:
