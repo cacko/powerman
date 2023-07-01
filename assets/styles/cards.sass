@@ -1,4 +1,3 @@
-
 @use 'mixins'
 
 .terminal-card
@@ -9,6 +8,14 @@
   row-gap: 2em
   padding: 2em
   width: 100%
-  @include mixins.gradient(left, #000000)
 
-  
+body
+  &[theme=dark]
+    .terminal-card
+      @include mixins.gradient(left, #181c22)
+
+
+  &[theme=light]
+    .terminal-card
+      @include mixins.gradient(left, #001b3f)
+
