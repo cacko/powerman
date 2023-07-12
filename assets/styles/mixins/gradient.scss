@@ -19,7 +19,7 @@
 
 @mixin gradient-nav($color) {
   $list: ();
-  $breaks: 0.9 0%, 0.85 10%, 0.5 30%, 0.3 70%, 0 100%;
+  $breaks: 1 0%, 0.85 10%, 0.75 30%, 0.7 70%, 0 100%;
   @each $opa, $break in $breaks {
     $list: append($list, change-color($color, $alpha: $opa) $break,  $separator: comma);
   }

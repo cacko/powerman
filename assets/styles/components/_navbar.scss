@@ -11,9 +11,6 @@ $color-mode-type: data;
   padding: 1rem 2rem;
   padding-bottom: 4rem;
   justify-content: space-between;
-  //@include color-mode(dark) {
-  //  @include gradient-header($body-tertiary-bg-dark);
-  //}
 
 
   .navbar-info {
@@ -46,7 +43,7 @@ $color-mode-type: data;
         width: 2em;
         height: 2em;
         border-radius: 50%;
-        border: solid 0.1em map-get($theme-colors, secondary);
+        border: solid 0.1em $color-secondary;
 
         img {
           opacity: 0;

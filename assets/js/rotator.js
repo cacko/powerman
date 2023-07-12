@@ -9,7 +9,7 @@ class _rotator {
     constructor(el) {
         this.el = el;
         this.running = false;
-        this.images = Array.from(Array(7)).map((_, idx) => `/images/home/ws-background${idx}.webp`);
+        this.images = Array.from(Array(15)).map((_, idx) => `/images/home/ws-background${idx}.webp`);
         this.timer = (ms) => new Promise((resolve) => setTimeout(() => resolve(this.setBackground()), ms));
         (async () => await this.setBackground(true))();
     }

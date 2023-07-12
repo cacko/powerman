@@ -9,24 +9,36 @@ table.ws-list {
 
   th {
     font-size: 1.5em;
+    padding: 0.5em 1em;
     @include gradient-row($black);
   }
 
-  &.rounded {
-    th:first-of-type {
-      border-top-left-radius: 1rem !important
-    }
+  th:first-of-type {
+    border-top-left-radius: 2rem !important
+  }
 
-    th:last-of-type {
-      border-top-right-radius: 1rem !important
+  th:last-of-type {
+    border-top-right-radius: 2rem !important
+  }
 
+  tbody {
+    tr:last-of-type {
+      td:first-of-type {
+        border-bottom-left-radius: 2rem !important
+      }
+
+      td:last-of-type {
+        border-bottom-right-radius: 2rem !important
+      }
     }
   }
 
+
   td {
     @include gradient-row($gray-700);
+    padding: 0.5em 1em;
 
-    .column {
+    .col {
       display: flex;
       column-gap: 0.3em;
       flex-direction: column;
@@ -36,8 +48,6 @@ table.ws-list {
       .value {
         font-family: VT323, serif;
       }
-
-
     }
 
     div.table-row {

@@ -1,3 +1,7 @@
+@import "../colors";
+@import "../mixins/breakpoints";
+@import "../mixins/gradient";
+
 .overlay {
   position: fixed;
   height: 100%;
@@ -20,6 +24,8 @@
     width: 100%;
     justify-content: center;
     align-items: center;
+    @include gradient-hero(left, $gray-600);
+
 
     div.inside {
       display: flex;

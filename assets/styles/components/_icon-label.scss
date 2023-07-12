@@ -3,7 +3,7 @@
 strong {
   font-variant: small-caps;
   text-transform: lowercase;
-  color: map-get($theme-colors, secondary);
+  color: $gray-100;
   display: inline-flex;
   flex-direction: row;
   align-items: center;

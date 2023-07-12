@@ -14,7 +14,7 @@ $color-mode-type: data;
   background-repeat: no-repeat;
   display: flex;
   z-index: -1;
-  background-color: color-mix(in srgb, #000 30%, transparent);
+  background-color: color-mix(in srgb, #fff 30%, transparent);
   background-blend-mode: darken;
   filter: grayscale(0.7);
 }
