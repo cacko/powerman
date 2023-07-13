@@ -44,6 +44,7 @@ input[type='button'],
 input[type='reset'],
 input[type='submit'] {
   font-size: 1.3rem;
+  user-select: none; 
 }
 
 @keyframes pulse {
