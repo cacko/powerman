@@ -1,4 +1,5 @@
 @import "colors"
+@import "mixins/breakpoints"
 
 body 
   font-family: Share Tech Mono, monospace, serif !important
@@ -37,3 +38,6 @@ body
     filter: grayscale(90%)
     opacity: 30%
   
+  @include media-breakpoint-down(md)
+    .container
+      padding: 0

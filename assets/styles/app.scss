@@ -3,7 +3,6 @@
 @import "material-icons";
 @import "base";
 
-
 @import "milligram/src/_Color";
 @import "milligram/src/_Base";
 @import "milligram/src/_Blockquote";
@@ -33,4 +32,8 @@
 @import "components/_tf-logo";
 @import "components/_clock";
 @import "components/_brand";
+@import "components/_form";
 
+body {
+  color: $body-color;
+}

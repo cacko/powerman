@@ -24,7 +24,7 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    @include gradient-hero(left, $gray-600);
+    @include gradient-hero(left, $gray-800);
 
 
     div.inside {
