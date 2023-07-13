@@ -37,3 +37,28 @@
 body {
   color: $body-color;
 }
+
+.button,
+button,
+input[type='button'],
+input[type='reset'],
+input[type='submit'] {
+  font-size: 1.3rem;
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.25, 1.25, 1.25);
+    transform: scale3d(1.25, 1.25, 1.25);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
