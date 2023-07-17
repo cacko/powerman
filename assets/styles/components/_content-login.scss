@@ -19,5 +19,9 @@
   .content-login {
     width: 100%;
     padding: 0;
+    .stripe-line {
+      position: relative;
+      top: -5vh;
+    }
   }
 }
