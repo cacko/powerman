@@ -1,17 +1,22 @@
+@import "../mixins/color-mode";
 
 $color-mode-type: data;
 
 
 .theme-switch {
   cursor: pointer;
-  &::before {
-    content: "\e51c";
+}
+@include color-mode(dark) {
+  .theme-switch {
+    &::before {
+      content: "\e51c";
+    }
   }
 }
-//@include color-mode(dark) {
-//  .theme-switch {
-//    &::before {
-//      content: "\e518";
-//    }
-//  }
-//}
+@include color-mode(light) {
+  .theme-switch {
+    &::before {
+      content: "\e518";
+    }
+  }
+}
