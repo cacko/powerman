@@ -1,4 +1,5 @@
 @import "milligram/src/_Color";
+@import "mixins/color-mode";
 
 //
 //$blue: #559DCC;
@@ -79,9 +80,20 @@ $color-quinary: lighten($gray-700, 5%);
 //$color-quinary: #e1e1e1 !default
 //
 
+$color-mode-type: data;
+
+@include color-mode(dark) {
+  $body-color: red;
+
+}
+@include color-mode(light) {
+  $body-color: red;
+}
+
 
 :root {
   --color-primary: $color-primary;
   --color-secondary: $color-secondary;
   --color-text-on-primary: $gray-800;
 }
+
