@@ -1,6 +1,7 @@
 @import "../colors";
 @import "../mixins/gradient";
 @import "../mixins/breakpoints";
+@import "../mixins/color-mode";
 
 $color-mode-type: data;
 
@@ -12,6 +13,9 @@ table.ws-list {
     font-size: 1.5em;
     padding: 0.5em 1em;
     @include gradient-row($black);
+    @include color-mode(light) {
+      @include gradient-row($gray-300);
+    }
   }
 
   th:first-of-type {
@@ -43,7 +47,7 @@ table.ws-list {
       column-gap: 0.3em;
       flex-direction: column;
       align-items: flex-start;
-      color: $gray-100;
+      color: var(--body-color);
 
       .value {
         font-family: VT323, serif;

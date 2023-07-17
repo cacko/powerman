@@ -2,18 +2,17 @@
 
 $color-mode-type: data;
 
-
 .theme-switch {
   cursor: pointer;
 }
-@include color-mode(dark) {
+@include color-mode(light) {
   .theme-switch {
     &::before {
       content: "\e51c";
     }
   }
 }
-@include color-mode(light) {
+@include color-mode(dark) {
   .theme-switch {
     &::before {
       content: "\e518";

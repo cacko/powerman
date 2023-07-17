@@ -7,6 +7,7 @@
         "core-js": "^3.23.0",
         "file-loader": "^6.0.0",
         "jquery": "^3.7.0",
+        "milligram": "git+https://github.com/cacko/milligram",
         "regenerator-runtime": "^0.13.9",
         "sass": "^1.63.6",
         "sass-loader": "^13.0.0",
@@ -25,7 +26,6 @@
     "dependencies": {
         "animate.css": "^4.1.1",
         "lodash-es": "^4.17.21",
-        "milligram": "^1.4.1",
         "normalize.css": "^8.0.1"
     }
 }
