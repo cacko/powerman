@@ -40,7 +40,10 @@ class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationE
 
     protected function getClient(): OAuth2ClientInterface
     {
-        return $this->clientRegistry->getClient('google_main');
+        $client = $this->clientRegistry->getClient('google_main');
+
+
+        return $client;
     }
 
     public function authenticate(Request $request): Passport
@@ -89,8 +92,6 @@ class GoogleAuthenticator extends OAuth2Authenticator implements AuthenticationE
 
         return new RedirectResponse($targetUrl);
 
-// or, on success, let the request continue to be handled by the controller
-//return null;
     }
 
     public function onAuthenticationFailure(Request $request, AuthenticationException $exception): ?Response
