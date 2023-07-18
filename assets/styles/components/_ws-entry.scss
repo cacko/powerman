@@ -1,4 +1,10 @@
 @import "../colors";
+@import "../colors";
+@import "../mixins/breakpoints";
+@import "../mixins/gradient";
+@import "../mixins/color-mode";
+
+$color-mode-type: data;
 
 .ws-entry {
   padding: 1rem;
@@ -6,15 +12,36 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  .rows {
-    font-size: 1.3em;
+  .grid {
+    width: 100%;
+    padding: 1em;
+    @include gradient-hero(left, $table-bg);
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1em;
+    font-size: 1.5em;
+    font-stretch: expanded;
     .label {
       text-align: right;
+      strong {
+        color: var(--color-tertiary);
+      }
     }
     .value {
     }
     //button {
     //  @include button-outline-variant($info);
     //}
+  }
+}
+
+
+@include color-mode(light) {
+  .ws-entry {
+    .grid {
+      @include gradient-hero(left, $table-bg-light);
+
+    }
   }
 }

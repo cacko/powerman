@@ -1,6 +1,9 @@
 @import "../colors";
 @import "../mixins/breakpoints";
 @import "../mixins/gradient";
+@import "../mixins/color-mode";
+
+$color-mode-type: data;
 
 .overlay {
   position: fixed;
@@ -24,13 +27,20 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    @include gradient-hero(left, $gray-800);
-
+    @include gradient-hero(left, $table-bg);
 
     div.inside {
       display: flex;
       flex-direction: column;
       row-gap: 0.5em;
+    }
+  }
+}
+
+@include color-mode(light) {
+  .overlay {
+    div.outside {
+      @include gradient-hero(left, $table-bg-light);
     }
   }
 }

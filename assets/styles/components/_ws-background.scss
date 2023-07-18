@@ -21,7 +21,7 @@ $color-mode-type: data;
 
 @include color-mode(light) {
   .ws-background {
-    background-color: color-mix(in srgb, #fff 30%, transparent);
+    background-color: color-mix(in srgb, #fff 20%, transparent);
     background-blend-mode: lighten;
     filter: grayscale(0.7);
   }

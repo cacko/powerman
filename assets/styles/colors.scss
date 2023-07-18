@@ -69,6 +69,7 @@ $theme: dark;
 
 $body-bg: $gray-900;
 $table-bg: $gray-800;
+$header-bg: $gray-900;
 $body-color: $gray-100;
 $color-initial: $black;
 $color-primary: $primary-600;
@@ -78,20 +79,22 @@ $color-quaternary: lighten($gray-600, 5%);
 $color-quinary: lighten($gray-700, 5%);
 
 $body-bg-light: $gray-600;
-$table-bg-light: $gray-400;
+$table-bg-light: $gray-300;
+$header-bg-light: $gray-400;
 $body-color-light: $black;
-$color-initial-light: #fff;
+$color-initial-light: $white;
 $color-primary-light: $primary-600;
-$color-secondary-light: #606c76;
-$color-tertiary-light: #f4f5f6;
-$color-quaternary-light: #d1d1d1;
-$color-quinary-light: #e1e1e1;
+$color-secondary-light: $gray-600;
+$color-tertiary-light: $gray-700;
+$color-quaternary-light: $gray-800;
+$color-quinary-light: $gray-900;
 
 
 :root[data-bs-theme="dark"] {
   --color-primary: #{$color-primary};
   --color-secondary: #{$color-secondary};
   --body-bg: #{$body-bg};
+  --header-bg: #{$header-bg};
   --table-bg: #{$table-bg};
   --body-color: #{$body-color};
   --color-initial: #{$color-initial};
@@ -105,6 +108,7 @@ $color-quinary-light: #e1e1e1;
   --color-primary: #{$color-primary-light};
   --color-secondary: #{$color-secondary-light};
   --body-bg: #{$body-bg-light};
+  --header-bg: #{$header-bg-light};
   --table-bg: #{$table-bg-light};
   --body-color: #{$body-color-light};
   --color-initial: #{$color-initial-light};

@@ -6,7 +6,7 @@ $color-mode-type: data;
 
 
 .navbar {
-  @include gradient-nav($black);
+  @include gradient-nav($header-bg);
   display: flex;
   padding: 1rem 2rem;
   padding-bottom: 4rem;
@@ -65,7 +65,7 @@ $color-mode-type: data;
 
 @include color-mode(light) {
   .navbar {
-    @include gradient-nav($white);
+    @include gradient-nav($header-bg-light);
   }
 
 }

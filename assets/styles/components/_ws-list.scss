@@ -13,7 +13,7 @@ table.ws-list {
   th {
     font-size: 1.5em;
     padding: 0.5em 1em;
-    @include gradient-row($body-bg);
+    @include gradient-row($header-bg);
   }
 
   th:first-of-type {
@@ -27,11 +27,16 @@ table.ws-list {
   tbody {
     tr:last-of-type {
       td:first-of-type {
-        border-bottom-left-radius: 2rem !important
+        border-bottom-left-radius: 2rem;
       }
 
       td:last-of-type {
-        border-bottom-right-radius: 2rem !important
+        border-bottom-right-radius: 2rem;
+      }
+    }
+    tr:hover {
+      td {
+        @include gradient-row($header-bg)
       }
     }
   }
@@ -70,7 +75,7 @@ table.ws-list {
   }
 
   @include media-breakpoint-down(md) {
-    border: 1px solid transparent;
+    border: none;
     box-shadow: none;
     font-size: 1.2em;
     display: table;
@@ -81,7 +86,20 @@ table.ws-list {
     }
 
     tbody {
+
+      tr:last-of-type {
+        td:first-of-type {
+          border-bottom-left-radius: unset;
+        }
+
+        td:last-of-type {
+          border-bottom-right-radius:unset;
+        }
+      }
+
       tr {
+
+
 
         td:first-child {
           padding-left: 10px;
@@ -95,7 +113,7 @@ table.ws-list {
           content: attr(data-label);
           text-transform: uppercase;
           font-weight: bold;
-          color: $color-tertiary;
+          color: var(--color-tertiary);
           width: 6em;
           display: flex;
           justify-content: end;
@@ -123,11 +141,19 @@ table.ws-list {
 @include color-mode(light) {
   table.ws-list {
     th {
-      @include gradient-row($body-bg-light);
+      @include gradient-row($header-bg-light);
     }
     td {
       @include gradient-row($table-bg-light);
     }
+    tbody {
+      tr:hover {
+        td {
+          @include gradient-row($header-bg-light);
+        }
+      }
+    }
+
   }
 }
 

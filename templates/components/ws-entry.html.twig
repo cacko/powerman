@@ -1,6 +1,6 @@
-<div class="ws-entry bg-body-tertiary bg-opacity-50 rounded container">
+<div class="ws-entry">
     <div><h1>Your Machine</h1></div>
-    <div class="row row-cols-2 g-3 rows">
+    <div class="grid">
         <div class="label col">
             <strong class="machine">Machine</strong>
         </div>
@@ -28,6 +28,4 @@
             {{ include('components/rows/action.html.twig', {state: workstation.state, hostname: workstation.hostname}) }}
         </div>
     </div>
-
-
 </div>

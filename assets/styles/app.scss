@@ -35,7 +35,7 @@
 @import "components/_form";
 
 body {
-  color: $body-color;
+  color: var(--body-color)
 }
 
 .button,
