@@ -1,5 +1,7 @@
 @import "../colors"
+@import "../mixins/color-mode"
 
+$color-mode-type: data
 
 form
   .form-group
@@ -7,8 +9,10 @@ form
     flex-direction: row
     align-items: baseline
     column-gap: 0.5em
+
     &.center
-     justify-content: center
+      justify-content: center
+
     [role="group"]
       display: flex
       flex-direction: row
@@ -31,15 +35,18 @@ form
   input:not([type]),
   textarea,
   select
-    -webkit-appearance: none // sass-lint:disable-line no-vendor-prefixes
+    -webkit-appearance: none
+    // sass-lint:disable-line no-vendor-prefixes
     background-color: transparent
     color: var(--body-color)
     border: .1rem solid $color-quaternary
     border-radius: .4rem
     box-shadow: none
-    box-sizing: inherit // Forced to replace inherit values of the normalize.css
+    box-sizing: inherit
+    // Forced to replace inherit values of the normalize.css
     height: 3.8rem
-    padding: .6rem 1.0rem .7rem // This vertically centers text on FF, ignored by Webkit
+    padding: .6rem 1.0rem .7rem
+    // This vertically centers text on FF, ignored by Webkit
     width: 100%
 
     &:focus
@@ -47,11 +54,11 @@ form
       outline: 0
 
   select
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23' + str-slice(inspect($color-quaternary), 2) + '" d="M0,0l6,8l6-8"/></svg>') center right no-repeat
+    background: url('data:image/svg+xmlutf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23' + str-slice(inspect($color-quaternary), 2) + '" d="M0,0l6,8l6-8"/></svg>') center right no-repeat
     padding-right: 3.0rem
 
     &:focus
-      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23' + str-slice(inspect($color-primary), 2) + '" d="M0,0l6,8l6-8"/></svg>')
+      background-image: url('data:image/svg+xmlutf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 8" width="30"><path fill="%23' + str-slice(inspect($color-primary), 2) + '" d="M0,0l6,8l6-8"/></svg>')
 
     &[multiple]
       background: none
@@ -79,3 +86,55 @@ form
     display: inline-block
     font-weight: normal
     margin-left: .5rem
+
+  label
+    display: flex
+    cursor: pointer
+    font-weight: 500
+    position: relative
+    overflow: hidden
+    margin-bottom: 0.375em
+
+    input
+      position: absolute
+      left: -9999px
+
+      &:checked + span
+        background-color: mix($header-bg, $color-primary, 84%)
+
+        &:before
+          box-shadow: inset 0 0 0 0.4375em $color-primary
+
+
+    span
+      display: flex
+      align-items: center
+      padding: 0.375em 0.75em 0.375em 0.375em
+      border-radius: 99em
+      transition: 0.25s ease
+
+      &:hover
+        background-color: mix($header-bg, $color-primary, 84%)
+
+      &:before
+        display: flex
+        flex-shrink: 0
+        content: ""
+        background-color: var(--header-bg)
+        width: 1.5em
+        height: 1.5em
+        border-radius: 50%
+        margin-right: 0.375em
+        transition: 0.25s ease
+        box-shadow: inset 0 0 0 0.125em $color-primary
+
+
+@include color-mode(light)
+  form
+    label
+      input
+        &:checked + span
+          background-color: mix($header-bg-light, $color-primary, 84%)
+      span
+        &:hover
+          background-color: mix($header-bg-light, $color-primary, 84%)

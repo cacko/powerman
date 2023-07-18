@@ -4,15 +4,17 @@
         <form data-template="/state/<%= action %>/<%= id %>" data-template_dst="action" method="post">
             <div class="inside">
                 <h1 data-template="<%= action %>"></h1>
-
                 <div class="form-group center">
                     <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <label  for="when_now">
+                            <input name="state[when]"  class="btn-check" type="radio" id="when_now" value="now" checked>
+                            <span>At Once</span>
+                        </label>
+                        <label for="when_later">
+                            <input name="state[when]" class="btn-check" type="radio" id="when_later" value="later">
 
-                        <input name="state[when]"  class="btn-check" type="radio" id="when_now" value="now" checked>
-                        <label class="btn btn-outline-primary" for="when_now">At Once</label>
-
-                        <input name="state[when]" class="btn-check" type="radio" id="when_later" value="later">
-                        <label class="btn btn-outline-primary" for="when_later">Scheduled</label>
+                            <span>Scheduled</span>
+                        </label>
                     </div>
                 </div>
                 <div class="form-group" data-dependant="state[when]_later" aria-readonly="true">
