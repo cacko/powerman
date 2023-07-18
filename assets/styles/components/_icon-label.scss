@@ -3,7 +3,7 @@
 strong {
   font-variant: small-caps;
   text-transform: lowercase;
-  color: $gray-100;
+  color: var(--body-color);
   display: inline-flex;
   flex-direction: row;
   align-items: center;

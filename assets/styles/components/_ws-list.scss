@@ -5,6 +5,7 @@
 
 $color-mode-type: data;
 
+
 table.ws-list {
   font-variant: small-caps;
   text-transform: lowercase;
@@ -12,10 +13,7 @@ table.ws-list {
   th {
     font-size: 1.5em;
     padding: 0.5em 1em;
-    @include gradient-row($black);
-    @include color-mode(light) {
-      @include gradient-row($gray-300);
-    }
+    @include gradient-row($body-bg);
   }
 
   th:first-of-type {
@@ -39,7 +37,7 @@ table.ws-list {
   }
 
   td {
-    @include gradient-row($gray-800);
+    @include gradient-row($table-bg);
     padding: 0.5em 1em;
 
     .col {
@@ -48,7 +46,6 @@ table.ws-list {
       flex-direction: column;
       align-items: flex-start;
       color: var(--body-color);
-
       .value {
         font-family: VT323, serif;
       }
@@ -119,6 +116,17 @@ table.ws-list {
           }
         }
       }
+    }
+  }
+}
+
+@include color-mode(light) {
+  table.ws-list {
+    th {
+      @include gradient-row($body-bg-light);
+    }
+    td {
+      @include gradient-row($table-bg-light);
     }
   }
 }

@@ -50,6 +50,7 @@ $gray-700: #495057;
 $gray-800: #343a40;
 $gray-900: #212529;
 $black: #000;
+$white: #FFF;
 //$grays: (100: $gray-100, 200: $gray-200, 300: $gray-300, 400: $gray-400, 500: $gray-500, 600: $gray-600, 700: $gray-700, 800: $gray-800, 900: $gray-900);
 //$theme-colors: (
 //  primary: $primary-600,
@@ -62,7 +63,12 @@ $black: #000;
 //  dark: $gray-800
 //);
 //$theme-color-interval: 8%;
+
+$theme: dark;
+
+
 $body-bg: $gray-900;
+$table-bg: $gray-800;
 $body-color: $gray-100;
 $color-initial: $black;
 $color-primary: $primary-600;
@@ -70,22 +76,23 @@ $color-secondary: $gray-300;
 $color-tertiary: $gray-600;
 $color-quaternary: lighten($gray-600, 5%);
 $color-quinary: lighten($gray-700, 5%);
-//
 
-$body-bg-light: $gray-300;
-$body-color-light: $gray-100;
+$body-bg-light: $gray-600;
+$table-bg-light: $gray-400;
+$body-color-light: $black;
 $color-initial-light: #fff;
 $color-primary-light: $primary-600;
 $color-secondary-light: #606c76;
 $color-tertiary-light: #f4f5f6;
-$color-quaternary-light: #d1d1d1 ;
+$color-quaternary-light: #d1d1d1;
 $color-quinary-light: #e1e1e1;
 
 
-:root {
+:root[data-bs-theme="dark"] {
   --color-primary: #{$color-primary};
   --color-secondary: #{$color-secondary};
   --body-bg: #{$body-bg};
+  --table-bg: #{$table-bg};
   --body-color: #{$body-color};
   --color-initial: #{$color-initial};
   --color-tertiary: #{$color-tertiary};
@@ -93,15 +100,16 @@ $color-quinary-light: #e1e1e1;
   --color-quinary: #{$color-quinary};
   --body-fontfamily: Share Tech Mono, monospace, serif !important;
 }
-//
-//:root[data-bs-theme="light"] {
-//  --color-primary: #{$color-primary-light};
-//  --color-secondary: #{$color-secondary-light};
-//  --body-bg: #{$body-bg-light};
-//  --body-color: #{$body-color-light};
-//  --color-initial: #{$color-initial-light};
-//  --color-tertiary: #{$color-tertiary-light};
-//  --color-quaternary: #{$color-quaternary-light};
-//  --color-quinary: #{$color-quinary-light};
-//  --body-fontfamily: Share Tech Mono, monospace, serif !important;
-//}
+
+:root[data-bs-theme="light"] {
+  --color-primary: #{$color-primary-light};
+  --color-secondary: #{$color-secondary-light};
+  --body-bg: #{$body-bg-light};
+  --table-bg: #{$table-bg-light};
+  --body-color: #{$body-color-light};
+  --color-initial: #{$color-initial-light};
+  --color-tertiary: #{$color-tertiary-light};
+  --color-quaternary: #{$color-quaternary-light};
+  --color-quinary: #{$color-quinary-light};
+  --body-fontfamily: Share Tech Mono, monospace, serif !important;
+}

@@ -28,7 +28,7 @@ $color-mode-type: data;
       display: flex;
       align-items: center;
       column-gap: 0.4em;
-      color: var(--color-text-on-primary);
+      color: var(--body-color);
       font-size: 2rem;
 
       .username {
@@ -43,7 +43,7 @@ $color-mode-type: data;
         width: 2em;
         height: 2em;
         border-radius: 50%;
-        border: solid 0.1em $color-secondary;
+        border: solid 0.1em var(--color-secondary);
 
         img {
           opacity: 0;
@@ -61,7 +61,11 @@ $color-mode-type: data;
 
     }
   }
-
-
 }
 
+@include color-mode(light) {
+  .navbar {
+    @include gradient-nav($white);
+  }
+
+}

@@ -18,9 +18,11 @@ $color-mode-type: data;
   background-blend-mode: darken;
   filter: grayscale(0.7);
 }
-//@include color-mode(dark) {
-//  .ws-background {
-//    background-color: color-mix(in srgb, #000 30%, transparent);
-//    background-blend-mode: darken;
-//  }
-//}
+
+@include color-mode(light) {
+  .ws-background {
+    background-color: color-mix(in srgb, #fff 30%, transparent);
+    background-blend-mode: lighten;
+    filter: grayscale(0.7);
+  }
+}
