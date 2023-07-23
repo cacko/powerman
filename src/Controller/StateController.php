@@ -3,13 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\StateEntity;
-use App\Entity\WorkstationEntity;
 use App\Enum\StateAction;
 use App\Enum\StateWhen;
 use App\Form\State;
 use App\Form\Type\StateType;
 use App\Service\WorkstationsService;
-use DateTimeZone;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Bundle\SecurityBundle\Security;
 use Symfony\Component\HttpFoundation\Request;
@@ -56,7 +55,6 @@ class StateController extends AbstractController
             "info",
             $this->getMessage($workstation->hostname, $wsState->trigger)
         );
-        die;
         return $this->redirectToRoute('app_homepage');
     }
 
@@ -74,7 +72,7 @@ class StateController extends AbstractController
         $currentState = $workstation->state;
         $config = match ($state->getWhen()) {
             StateWhen::NOW => [$group->getNextResume($stateDt, $stateTm), 0, $currentState->last_ack],
-            default => [0, 0, $currentState->last_ack],
+            default => [$this->toTimestamp($stateDt, $stateTm) * -1, 0, $currentState->last_ack],
         };
         $wsState = $workstation->writeState((array)new StateEntity(...$config));
         $this->addFlash(
@@ -106,6 +104,13 @@ class StateController extends AbstractController
             $hostname,
             $action
         );
+    }
+
+
+    public function toTimestamp(?DateTime $dt, ?DateTime $tm): int
+    {
+        $time = explode(':', $tm?->format('H:i') ?? $this->resumeAt);
+        return $dt->setTime(...array_map('intval', $time))->getTimestamp();
     }
 
 }

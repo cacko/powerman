@@ -1,18 +1,35 @@
 {% apply spaceless %}
-    <div class="column">
-        <div class="table-row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}"">
-            {% if state.trigger > 0 %}
+    <div class="table-row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}">
+        {% if state.trigger > 0 %}
+            <div class="main">
                 <i class="material-icons-outlined">battery_saver</i>
-                <span class="label">Until</span>
+                <span>Suspended</span>
+            </div>
+            <div class="extra">
                 {% if date(state.trigger).format('y-m-d') != date().format('y-m-d') %}
-                    <span class="trigger">{{ state.trigger|format_datetime(pattern='E.MMMdd HH:mm', locale='en', timezone=tz) }}</span>
+                    <span class="value">{{ state.trigger|format_datetime(pattern='E.MMMdd HH:mm', locale='en', timezone=tz) }}</span>
                 {% else %}
-                <span class="trigger">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
+                    <span class="value">{{ state.trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
                 {% endif %}
-            {% else %}
+            </div>
+        {% else %}
+            <div class="main">
                 <i class="material-icons-outlined animate__animated animate__pulse animate__infinite error">bolt</i>
                 <span>Active</span>
-            {% endif %}
-        </div>
+            </div>
+            <div class="extra">
+                {% if state.trigger < 0 %}
+                    {% with %}
+                        {% set trigger = state.trigger * -1 %}
+                        {% if date(trigger).format('y-m-d') != date().format('y-m-d') %}
+                            <span class="value">{{ trigger|format_datetime(pattern='E.MMMdd HH:mm', locale='en', timezone=tz) }}</span>
+                        {% else %}
+                            <span class="value">Today {{ trigger|format_datetime(pattern='HH:mm', locale='en', timezone=tz) }}</span>
+                        {% endif %}
+                    {% endwith %}
+
+                {% endif %}
+            </div>
+        {% endif %}
     </div>
 {% endapply %}

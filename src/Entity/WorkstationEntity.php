@@ -31,25 +31,24 @@ class WorkstationEntity extends AbstractAppEntity
             'ack' => 0,
             'last_ack' => 0,
         ];
-
         if (!file_exists($this->location)) {
             $this->state = $this->writeState($config);
             return $this->state;
         }
         $data = Yaml::parseFile($this->location);
-        $state = new StateEntity(...[...$config, ...$data]);
-        $trigger = $state->trigger;
-        $nextTrigger = $this->group->getNextTrigger($trigger);
-        if ($trigger != $nextTrigger) {
-            $this->state = $this->writeState([
-                'trigger' => $nextTrigger,
-                'ack' => 0,
-                'last_ack' => $state->last_ack
-            ]);
-        } else {
-            $this->state = $state;
-        }
-        return $this->state;
+        $state = new StateEntity(...$data);
+//        $trigger = $state->trigger;
+//        $nextTrigger = $this->group->getNextTrigger($trigger);
+//        if ($trigger != $nextTrigger) {
+//            $this->state = $this->writeState([
+//                'trigger' => $nextTrigger,
+//                'ack' => 0,
+//                'last_ack' => $state->last_ack
+//            ]);
+//        } else {
+//            $this->state = $state;
+//        }
+        return $state;
     }
 
     public function writeState(array $config): StateEntity

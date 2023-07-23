@@ -17,4 +17,5 @@ class StateEntity extends AbstractAppEntity
 
     }
 
+
 }

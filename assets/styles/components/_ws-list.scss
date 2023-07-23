@@ -58,10 +58,15 @@ table.ws-list {
 
     div.table-row {
       display: flex;
-      flex-direction: row;
+      width: 100%;
+      flex-direction: column;
       column-gap: 0.3em;
       justify-content: center;
-      align-items: center;
+      >div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+      }
 
 
       &.sub {
@@ -118,6 +123,7 @@ table.ws-list {
           display: flex;
           justify-content: end;
           padding-right: 1em;
+          align-self: baseline;
         }
 
         td {

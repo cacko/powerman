@@ -115,6 +115,20 @@ class GroupEntity extends AbstractAppEntity
         return $resumeAt;
     }
 
+    public function getNextSuspend(int $trigger): int
+    {
+        $tz = new DateTimeZone(static::TZ);
+        $now = new DateTime('now', $tz);
+        $suspendAt = new DateTime("today {$this->suspendAt}", $tz);
+        if ($now > $suspendAt) {
+            $suspendAt = new DateTime("tomorrow {$this->suspendAt}", $tz);
+        }
+        if ($trigger < 0 && abs($trigger) > time()) {
+            $suspendAt = new DateTime(sprintf("@%d", abs($trigger)), $tz);
+        }
+        return $suspendAt->getTimestamp();
+    }
+
     public function getNextResume(?DateTime $dt, ?DateTime $tm): int
     {
         if (!$dt) {

@@ -1,8 +1,10 @@
 {% apply spaceless %}
-    <div class="column">
-        <div class="table-row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}">
+    <div class="table-row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}">
+        <div class="main">
             <i class="material-icons-outlined">network_ping</i>
             <span class="label">Last Ack</span>
+        </div>
+        <div class="extra">
             <span class="value">{{ state.last_ack ? date(state.last_ack, timezone=tz)|ago : "unknown" }}</span>
         </div>
     </div>

@@ -1,13 +1,13 @@
 {% apply spaceless %}
-    {% if state.trigger == 0 %}
-        <button type="button" class="btn  dt_selector" data-id="{{ hostname }}" data-action="suspend">
-            <i class="material-icons-outlined">battery_saver</i>
-            <span>Suspend</span>
-        </button>
-    {% else %}
+    {% if state.trigger > 0 %}
         <button type="button" class="btn  dt_selector" data-id="{{ hostname }}" data-action="resume">
             <i class="material-icons-outlined">bolt</i>
             <span>Resume</span>
+        </button>
+    {% else %}
+        <button type="button" class="btn  dt_selector" data-id="{{ hostname }}" data-action="suspend">
+            <i class="material-icons-outlined">battery_saver</i>
+            <span>Suspend</span>
         </button>
     {% endif %}
 {% endapply %}
