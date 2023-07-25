@@ -2,7 +2,7 @@
     <div class="table-row {{ state.ack == 0 ? 'pending' }}" title="{{ state.ack == 0 ? 'Pending' }}">
         {% if state.trigger > 0 %}
             <div class="main">
-                <i class="material-icons-outlined">battery_saver</i>
+                <i class="material-icons-outlined suspended">battery_saver</i>
                 <span>Suspended</span>
             </div>
             <div class="extra">
@@ -14,7 +14,7 @@
             </div>
         {% else %}
             <div class="main">
-                <i class="material-icons-outlined animate__animated animate__pulse animate__infinite error">bolt</i>
+                <i class="material-icons-outlined animate__animated animate__pulse animate__infinite active">bolt</i>
                 <span>Active</span>
             </div>
             <div class="extra">

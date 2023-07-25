@@ -1,0 +1,37 @@
+@import "colors";
+
+
+:root[data-bs-theme="dark"] {
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --body-bg: #{$body-bg};
+  --header-bg: #{$header-bg};
+  --table-bg: #{$table-bg};
+  --body-color: #{$body-color};
+  --color-initial: #{$color-initial};
+  --color-tertiary: #{$color-tertiary};
+  --color-quaternary: #{$color-quaternary};
+  --color-quinary: #{$color-quinary};
+  --body-fontfamily: Share Tech Mono, monospace, serif !important;
+  --blend-mode: darken;
+  --color-active: #{$color-active};
+  --color-suspended: #{$color-suspended};
+}
+
+
+:root[data-bs-theme="light"] {
+  --color-primary: #{$color-primary-light};
+  --color-secondary: #{$color-secondary-light};
+  --body-bg: #{$body-bg-light};
+  --header-bg: #{$header-bg-light};
+  --table-bg: #{$table-bg-light};
+  --body-color: #{$body-color-light};
+  --color-initial: #{$color-initial-light};
+  --color-tertiary: #{$color-tertiary-light};
+  --color-quaternary: #{$color-quaternary-light};
+  --color-quinary: #{$color-quinary-light};
+  --body-fontfamily: Share Tech Mono, monospace, serif !important;
+  --blend-mode: lighten;
+  --color-active: #{$color-active-light};
+  --color-suspended: #{$color-suspended-light};
+}

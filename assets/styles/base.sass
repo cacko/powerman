@@ -1,4 +1,5 @@
 @import "colors"
+@import "themes"
 @import "mixins/breakpoints"
 
 body 
@@ -32,6 +33,12 @@ body
     text-transform: lowercase
     font-weight: bold
     text-align: center
+
+  .suspended
+    color: var(--color-suspended)
+
+  .active
+    color: var(--color-active)
   
 
   [aria-readonly="true"] 

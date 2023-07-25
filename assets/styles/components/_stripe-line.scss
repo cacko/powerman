@@ -1,5 +1,8 @@
+@use "sass:meta";
 @import "../colors";
 @import "../mixins/gradient";
+@import "open-props/src/props.colors-hsl.css";
+
 
 .stripe-line {
   display: flex;
@@ -9,5 +12,5 @@
   column-gap: 2em;
   padding: 2em;
   width: 100%;
-  @include gradient-hero(left, $black);
+  @include gradient-hero(left, #000);
 }

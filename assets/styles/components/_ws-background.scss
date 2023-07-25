@@ -14,15 +14,7 @@ $color-mode-type: data;
   background-repeat: no-repeat;
   display: flex;
   z-index: -1;
-  background-color: color-mix(in srgb, #fff 30%, transparent);
-  background-blend-mode: darken;
+  background-color: color-mix(in srgb, var(--body-bg) 30%, transparent);
+  background-blend-mode: var(--blend-mode);
   filter: grayscale(0.7);
-}
-
-@include color-mode(light) {
-  .ws-background {
-    background-color: color-mix(in srgb, #fff 20%, transparent);
-    background-blend-mode: lighten;
-    filter: grayscale(0.7);
-  }
 }
