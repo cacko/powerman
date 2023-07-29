@@ -16,5 +16,5 @@ $color-mode-type: data;
   z-index: -1;
   background-color: color-mix(in srgb, var(--body-bg) 30%, transparent);
   background-blend-mode: var(--blend-mode);
-  filter: grayscale(0.7);
+  filter: grayscale(0.2);
 }

@@ -2,6 +2,7 @@
 @import "../mixins/gradient";
 @import "../mixins/breakpoints";
 @import "../mixins/color-mode";
+@import "open-props/src/props.shadows.css";
 
 $color-mode-type: data;
 
@@ -9,6 +10,7 @@ $color-mode-type: data;
 table.ws-list {
   font-variant: small-caps;
   text-transform: lowercase;
+  box-shadow: var(--shadow-2);
 
   th {
     font-size: 1.5em;

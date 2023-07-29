@@ -43,7 +43,11 @@ $color-mode-type: data;
         width: 2em;
         height: 2em;
         border-radius: 50%;
-        border: solid 0.1em var(--color-secondary);
+        border: solid 0.1em var(--color-tertiary);
+
+        &:hover {
+          border-color: var(--color-secondary);
+        }
 
         img {
           opacity: 0;
