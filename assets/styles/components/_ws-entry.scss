@@ -1,5 +1,4 @@
 @import "../colors";
-@import "../colors";
 @import "../mixins/breakpoints";
 @import "../mixins/gradient";
 @import "../mixins/color-mode";
@@ -12,13 +11,16 @@ $color-mode-type: data;
   display: flex;
   flex-direction: column;
   align-items: center;
+
+
+
   .hero {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     padding: 1em;
-    @include gradient-hero(left, $table-bg);
+    @include gradient-hero(left, $body-bg);
     table {
       width: auto;
       td:first-child {

@@ -1,0 +1,20 @@
+
+@import "toastify-js/src/toastify.css";
+@import "../mixins/gradient";
+@import "../colors";
+@import "../mixins/color-mode";
+
+$color-mode-type: data;
+
+.toastify {
+  border-radius: 1em;
+  font-family: VT323, monospace;
+  color: var(--body-color);
+  @include gradient-block($body-bg);
+}
+
+@include color-mode(light) {
+  .toastify {
+    @include gradient-block($body-bg-light);
+  }
+}

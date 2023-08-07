@@ -35,7 +35,10 @@
 @import "components/_form";
 
 body {
-  color: var(--body-color)
+  color: var(--body-color);
+  h1 {
+    text-shadow: -1px -1px 0 var(--body-bg), 1px -1px 0 var(--body-bg), -1px 1px 0 var(--body-bg), 1px 1px 0 var(--body-bg);
+  }
 }
 
 .button,
@@ -45,6 +48,12 @@ input[type='reset'],
 input[type='submit'] {
   user-select: none;
 }
+
+.toast {
+  display: none;
+}
+
+
 
 @keyframes pulse {
   from {

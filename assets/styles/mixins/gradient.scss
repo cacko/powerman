@@ -25,3 +25,7 @@
   }
   background-image: linear-gradient(to bottom, $list);
 }
+
+@mixin gradient-block($color) {
+  background-image: linear-gradient(to bottom right,lighten($color, 30%),$color);
+}
