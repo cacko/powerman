@@ -3023,7 +3023,7 @@ micromatch@^4.0.2:
 
 "milligram@git+https://github.com/cacko/milligram":
   version "1.4.1"
-  resolved "git+https://github.com/cacko/milligram#405002500b5fb95ec63f1d9d47dfc0e470f81be8"
+  resolved "git+https://github.com/cacko/milligram#e8e785703d716fec060fd1eb747d5e40113a60ad"
   dependencies:
     normalize.css "~8.0.1"
 

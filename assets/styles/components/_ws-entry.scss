@@ -12,36 +12,58 @@ $color-mode-type: data;
   display: flex;
   flex-direction: column;
   align-items: center;
-  .grid {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     padding: 1em;
     @include gradient-hero(left, $table-bg);
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1em;
-    font-size: 1.5em;
-    font-stretch: expanded;
-    .label {
-      text-align: right;
-      strong {
-        color: var(--color-tertiary);
+    table {
+      width: auto;
+      td:first-child {
+        padding-left: 1em;
       }
+      td:last-child {
+        padding-right: 1em;
+      }
+      tr:hover {
+        td {
+          @include gradient-row($header-bg);
+        }
+
+
+      }
+      .col {
+        width: 100%;
+      }
+      .label {
+        text-align: right;
+        strong {
+          color: var(--color-tertiary);
+        }
+      }
+      .value {
+      }
+      //button {
+      //  @include button-outline-variant($info);
+      //}
     }
-    .value {
-    }
-    //button {
-    //  @include button-outline-variant($info);
-    //}
   }
 }
 
 
 @include color-mode(light) {
   .ws-entry {
-    .grid {
+    .hero {
       @include gradient-hero(left, $table-bg-light);
-
+      table {
+        tr:hover {
+          td {
+            @include gradient-row($header-bg-light)
+          }
+        }
+      }
     }
   }
 }
