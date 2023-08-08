@@ -68,7 +68,7 @@ class WorkstationsService
         return array_reduce($resources, function ($data, $res) {
             $resData = [];
             if (is_dir($res)) {
-                $resData = $this->loadResources(glob(sprintf("%s/{,*/,*/*/,*/*/*/}*.yaml", $res), GLOB_BRACE));
+                $resData = $this->loadResources(glob(sprintf("%s/*.yaml", $res),));
             } elseif (is_file($res)) {
                 $resData = Yaml::parseFile($res);
             }

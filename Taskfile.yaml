@@ -1,7 +1,7 @@
-version: "3"
+version: "3.3"
 
 vars:
-  CONTAINER_PHP: costa
+  CONTAINER_PHP: powerman
   PROJECT: acpi
 
 
@@ -22,10 +22,31 @@ tasks:
       - echo "done"
 
 
+
+  docker-build:
+    desc: Build the container image
+    cmds:
+      - docker-compose up --force-recreate --build
+  docker-up:
+    desc: Uo the irons
+    cmds:
+      - docker-compose up
+  docker-shell:
+    desc: hax0r
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} env TERM=xterm-256color script -q -c "/bin/bash" /dev/null
+
+
+  composer:
+    desc: run composer
+    cmds:
+      - docker-compose exec {{.CONTAINER_PHP}} ./composer.phar {{.CLI_ARGS}}
+
+
   yarn:
     desc: run yar cmd
     cmds:
-      - yarn {{.CLI_ARGS}}
+      - yarnpkg {{.CLI_ARGS}}
 
   server:
     desc: run symfony server

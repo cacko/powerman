@@ -1,0 +1,8 @@
+#!/usr/bin/env sh
+set -e
+php-fpm -D
+cd /var/www/html
+composer install
+yarn install
+yarn dev-server &
+
